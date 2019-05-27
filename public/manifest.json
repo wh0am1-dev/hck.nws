@@ -3,8 +3,8 @@
   "name": "H4X0R.nws",
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#424242",
-  "background_color": "#424242",
+  "theme_color": "#ff9800",
+  "background_color": "#303030",
   "icons": [
     {
       "src": "img/h4x0r.nws.png",
