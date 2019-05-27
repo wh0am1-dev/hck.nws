@@ -1,9 +1,5 @@
 /* application styles */
 
-/* ns */ @media screen and (min-width: 30em) {}
-/*  m */ @media screen and (min-width: 30em) and (max-width: 60em) {}
-/*  l */ @media screen and (min-width: 60em) {}
-
 @keyframes spin {
   100% { transform: rotate(360deg) }
 }
@@ -25,14 +21,6 @@
 .sticky {
   position: -webkit-sticky;
   position: sticky;
-}
-
-.h-third {
-  height: calc(100% / 3);
-}
-
-.h-two-thirds {
-  height: calc(100% / 1.5);
 }
 
 .cursor {
@@ -57,42 +45,4 @@
 
 .pe-none {
   pointer-events: none;
-}
-
-.bg-grad {
-  background-image: linear-gradient(to right, #7f53ac 0, #657ced 100%);
-}
-
-.grow-sm {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  transition: -webkit-transform .15s ease-out;
-  transition: transform .15s ease-out;
-  transition: transform .15s ease-out, -webkit-transform .15s ease-out;
-}
-
-.grow-sm:active {
-  -webkit-transform: scale(.90);
-  transform: scale(.90);
-}
-
-.trans-in {
-  -webkit-transition: all .15s ease-in;
-  -moz-transition: all .15s ease-in;
-  transition: all .15s ease-in;
-}
-
-.trans-out {
-  -webkit-transition: all .15s ease-out;
-  -moz-transition: all .15s ease-out;
-  transition: all .15s ease-out;
-}
-
-.trans-in-out {
-  -webkit-transition: all .15s ease-in-out;
-  -moz-transition: all .15s ease-in-out;
-  transition: all .15s ease-in-out;
 }
