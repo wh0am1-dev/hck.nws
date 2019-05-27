@@ -1,5 +1,3 @@
-<div align="center">
-
 # H4X0R.nws
 
 hacker news client progressive web application
@@ -30,5 +28,3 @@ lint code with [standard](https://standardjs.com)
 ---
 
 ![](https://img.shields.io/badge/neko250-333333.svg?style=for-the-badge) [![](https://img.shields.io/badge/45:1_🎶🎷-333333.svg?style=for-the-badge)](https://youtu.be/ngrpnmBJWBs)
-
-</div>
