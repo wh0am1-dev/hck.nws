@@ -23,7 +23,7 @@ const H4x0rNws = () => {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <BrowserRouter>
+        <BrowserRouter basename='/H4X0R.nws'>
           <Route component={Navbar} />
           <Switch>
             <Route path='/' exact component={Home} />
