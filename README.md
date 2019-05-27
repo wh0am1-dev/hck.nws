@@ -1,5 +1,7 @@
 # H4X0R.nws
 
+[![Build Status](https://travis-ci.org/Neko250/H4X0R.nws.svg?branch=master)](https://travis-ci.org/Neko250/H4X0R.nws)
+
 hacker news client progressive web application
 
 | :sparkles: made with :sparkles:                        |
