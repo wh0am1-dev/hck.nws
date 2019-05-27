@@ -1,13 +1,98 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* application styles */
+
+/* ns */ @media screen and (min-width: 30em) {}
+/*  m */ @media screen and (min-width: 30em) and (max-width: 60em) {}
+/*  l */ @media screen and (min-width: 60em) {}
+
+@keyframes spin {
+  100% { transform: rotate(360deg) }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+@keyframes float {
+  0% { transform: translateY(0) }
+  25% { transform: translateY(-8px) }
+  50% { transform: translateY(0) }
+  75% { transform: translateY(8px) }
+}
+
+@keyframes swing {
+  0% { transform: rotate(0deg) }
+  25% { transform: rotate(-22.5deg) }
+  50% { transform: rotate(0deg) }
+  75% { transform: rotate(22.5deg) }
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.h-third {
+  height: calc(100% / 3);
+}
+
+.h-two-thirds {
+  height: calc(100% / 1.5);
+}
+
+.cursor {
+  cursor: default;
+}
+
+.sbs {
+  scroll-behavior: smooth;
+}
+
+.sel {
+  user-select: text;
+}
+
+.sel-none {
+  user-select: none;
+}
+
+.pe {
+  pointer-events: all;
+}
+
+.pe-none {
+  pointer-events: none;
+}
+
+.bg-grad {
+  background-image: linear-gradient(to right, #7f53ac 0, #657ced 100%);
+}
+
+.grow-sm {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  transition: -webkit-transform .15s ease-out;
+  transition: transform .15s ease-out;
+  transition: transform .15s ease-out, -webkit-transform .15s ease-out;
+}
+
+.grow-sm:active {
+  -webkit-transform: scale(.90);
+  transform: scale(.90);
+}
+
+.trans-in {
+  -webkit-transition: all .15s ease-in;
+  -moz-transition: all .15s ease-in;
+  transition: all .15s ease-in;
+}
+
+.trans-out {
+  -webkit-transition: all .15s ease-out;
+  -moz-transition: all .15s ease-out;
+  transition: all .15s ease-out;
+}
+
+.trans-in-out {
+  -webkit-transition: all .15s ease-in-out;
+  -moz-transition: all .15s ease-in-out;
+  transition: all .15s ease-in-out;
 }
