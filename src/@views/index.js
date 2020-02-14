@@ -1,0 +1,5 @@
+export { default as About } from './About'
+export { default as Home } from './Home'
+export { default as Jobs } from './Jobs'
+export { default as NotFound } from './NotFound'
+export { default as Stories } from './Stories'
