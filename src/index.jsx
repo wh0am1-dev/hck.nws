@@ -3,20 +3,16 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/styles'
-import CssBaseline from '@material-ui/core/CssBaseline'
+import { CssBaseline } from '@material-ui/core'
 import 'typeface-ibm-plex-mono'
 import 'typeface-roboto'
 
+import theme from '@themes/dark'
+import store from '@store'
+import { Navbar, Tabs } from '@components'
+import { Home, Stories, Jobs, About, NotFound } from '@views'
+import * as serviceWorker from 'serviceWorker'
 import './index.css'
-import theme from './themes/material'
-import store from './store'
-import Navbar from './components/Navbar'
-import Home from './views/Home'
-import Stories from './views/Stories'
-import Jobs from './views/Jobs'
-import About from './views/About'
-import NotFound from './views/NotFound'
-import * as serviceWorker from './serviceWorker'
 
 const H4x0rNws = () => {
   return (
@@ -24,7 +20,7 @@ const H4x0rNws = () => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <BrowserRouter basename='/H4X0R.nws'>
-          <Route component={Navbar} />
+          <Navbar />
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/stories' component={Stories} />
@@ -32,6 +28,7 @@ const H4x0rNws = () => {
             <Route path='/about' component={About} />
             <Route component={NotFound} />
           </Switch>
+          <Route path={['/stories', '/jobs']} component={Tabs} />
         </BrowserRouter>
       </ThemeProvider>
     </Provider>
