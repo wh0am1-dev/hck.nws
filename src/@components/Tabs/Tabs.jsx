@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import { BottomNavigation, BottomNavigationAction } from '@material-ui/core'
 import { StoriesIcon, JobsIcon } from '@components/icons'
@@ -14,6 +14,10 @@ const Tabs = () => {
     setSection(newSection)
     history.push(newSection)
   }, []) // eslint-disable-line
+
+  useEffect(() => {
+    setSection(location)
+  }, [location, setSection])
 
   return (
     <BottomNavigation value={section} onChange={onChange} elevation={8} className={classes.root}>
