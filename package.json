@@ -9,6 +9,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "inspect": "source-map-explorer 'build/static/js/*.js'",
     "lint": "standard --verbose | snazzy"
   },
   "eslintConfig": {
