@@ -17,20 +17,20 @@ const Home = props => {
         justify='center'
         classes={{ root: classes.grid }}
       >
-        <Hidden xsDown>
+        <Hidden smDown>
           <Grid item xs={12} container spacing={4} alignItems='center' justify='center'>
             <Grid item>
               <img src={asset('/img/h4x0r.nws.svg')} className={classes.logo} alt='' />
             </Grid>
             <Grid item>
-              <Typography variant='h1' classes={{ root: classes.title }}>
+              <Typography variant='h2' classes={{ root: classes.title }}>
                 H4X0R.nws
               </Typography>
             </Grid>
           </Grid>
         </Hidden>
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} md={6}>
           <SectionCard
             title='stories'
             img={asset('/img/illustrations/stories.svg')}
@@ -39,7 +39,7 @@ const Home = props => {
           />
         </Grid>
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} md={6}>
           <SectionCard
             title='jobs'
             img={asset('/img/illustrations/jobs.svg')}

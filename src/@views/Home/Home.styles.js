@@ -4,14 +4,15 @@ const useStyles = makeStyles(theme => ({
   container: {
     position: 'relative',
     padding: theme.spacing(2),
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       height: 'calc(100vh - 56px)'
     },
     [theme.breakpoints.up('sm')]: {
-      marginTop: theme.spacing(4)
+      margin: '0 auto'
     }
   },
   grid: {
+    height: 'calc(100vh - 64px)',
     [theme.breakpoints.down('xs')]: {
       height: 'calc(100vh - 56px)'
     }
