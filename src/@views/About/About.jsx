@@ -1,5 +1,6 @@
 import React from 'react'
 import { Avatar, Box, Container, Grid, Link, Typography } from '@material-ui/core'
+import { asset } from 'H4x0rNws'
 import useStyles from './About.styles'
 
 const About = props => {
@@ -10,7 +11,7 @@ const About = props => {
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <Box className={classes.logoBox}>
-            <Avatar src='/img/h4x0r.nws.svg' className={classes.logo} />
+            <Avatar src={asset('/img/h4x0r.nws.svg')} className={classes.logo} />
           </Box>
         </Grid>
         <Grid item xs={12}>

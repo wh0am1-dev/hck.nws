@@ -14,6 +14,7 @@ import {
   Toolbar,
   Typography
 } from '@material-ui/core'
+import { asset } from 'H4x0rNws'
 import { HomeIcon, InfoIcon, MenuIcon, JobsIcon, StoriesIcon } from '@components/icons'
 import useStyles from './Navbar.styles'
 
@@ -48,7 +49,7 @@ const Navbar = () => {
         classes={{ paper: classes.drawer }}
         ModalProps={{ keepMounted: true }}
       >
-        <img src='/img/h4x0r.nws.svg' className={classes.logo} alt='' />
+        <img src={asset('/img/h4x0r.nws.svg')} className={classes.logo} alt='' />
 
         <div onClick={() => toggleDrawer(false)}>
           <List disablePadding classes={{ root: classes.toolbar }}>

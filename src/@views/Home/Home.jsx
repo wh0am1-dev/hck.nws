@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Grid, Hidden, Typography } from '@material-ui/core'
+import { asset } from 'H4x0rNws'
 import { SectionCard } from '@components'
 import { StoriesIcon, JobsIcon } from '@components/icons'
 import useStyles from './Home.styles'
@@ -19,7 +20,7 @@ const Home = props => {
         <Hidden xsDown>
           <Grid item xs={12} container spacing={4} alignItems='center' justify='center'>
             <Grid item>
-              <img src='/img/h4x0r.nws.svg' className={classes.logo} alt='' />
+              <img src={asset('/img/h4x0r.nws.svg')} className={classes.logo} alt='' />
             </Grid>
             <Grid item>
               <Typography variant='h1' classes={{ root: classes.title }}>
@@ -32,7 +33,7 @@ const Home = props => {
         <Grid item xs={12} sm={6}>
           <SectionCard
             title='stories'
-            img='/img/illustrations/stories.svg'
+            img={asset('/img/illustrations/stories.svg')}
             icon={<StoriesIcon />}
             onClick={() => props.history.push('/stories')}
           />
@@ -41,7 +42,7 @@ const Home = props => {
         <Grid item xs={12} sm={6}>
           <SectionCard
             title='jobs'
-            img='/img/illustrations/jobs.svg'
+            img={asset('/img/illustrations/jobs.svg')}
             icon={<JobsIcon />}
             onClick={() => props.history.push('/jobs')}
           />
