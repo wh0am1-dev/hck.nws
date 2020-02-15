@@ -1,32 +1,33 @@
+<div align="center">
+
+<a href="https://gtfo.now.sh"><img src="https://raw.githubusercontent.com/GTFOCrew/gtfo/master/src/img/gtfo.png" width="25%"></a>
+
 # H4X0R.nws
 
 [![Build Status](https://travis-ci.org/Neko250/H4X0R.nws.svg?branch=master)](https://travis-ci.org/Neko250/H4X0R.nws)
 
 hacker news client progressive web application
 
-| :sparkles: made with :sparkles:                        |
-|:------------------------------------------------------:|
-| [react](https://reactjs.org)                           |
-| [redux](https://redux.js.org)                          |
-| [react-router](https://reacttraining.com/react-router) |
-| [material-ui](https://material-ui.com)                 |
-| [ibm plex mono](https://www.ibm.com/plex)              |
-
 <br>
 
-## :computer: how-to
+## 💻 how-to 💻
 
-:hammer: __`yarn start`__<br>
-local development server
+🔨 **`yarn start`** 🔨<br>
+dev server
 
-:construction: __`yarn build`__<br>
-compile files into `build/`
+🏗 **`yarn build`** 🏗<br>
+compile bundle
 
-:microscope: __`yarn lint`__<br>
-lint code with [standard](https://standardjs.com)
+🧹 **`yarn lint`** 🧹<br>
+lint with [standard](https://standardjs.com)
+
+🔬 **`yarn inspect`** 🔬<br>
+inspect bundle
 
 <br>
 
 ---
 
 ![](https://img.shields.io/badge/neko250-333333.svg?style=for-the-badge) [![](https://img.shields.io/badge/45:1_🎶🎷-333333.svg?style=for-the-badge)](https://youtu.be/ngrpnmBJWBs)
+
+</div>
