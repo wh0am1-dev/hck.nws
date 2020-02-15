@@ -26,7 +26,7 @@ const SectionCard = ({ title, img, icon, onClick }) => {
               {icon}
             </Grid>
             <Grid item>
-              <Typography variant='h5' color='primary' classes={{ root: classes.title }}>
+              <Typography variant='h5' classes={{ root: classes.title }}>
                 {title}
               </Typography>
             </Grid>
