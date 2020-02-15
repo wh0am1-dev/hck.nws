@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { Avatar, Box, Container, Grid, Link, Typography } from '@material-ui/core'
 import { asset } from 'H4x0rNws'
 import useStyles from './About.styles'
@@ -8,6 +9,7 @@ const About = props => {
 
   return (
     <Container maxWidth='sm' className={classes.container}>
+      <Helmet title='about' />
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <Box className={classes.logoBox}>

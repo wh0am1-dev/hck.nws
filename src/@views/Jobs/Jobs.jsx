@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Helmet } from 'react-helmet'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container } from '@material-ui/core'
 import { ItemList } from '@components'
@@ -14,7 +15,8 @@ const Jobs = () => {
   useEffect(() => dispatch(fetchJobs()), []) // eslint-disable-line
 
   return (
-    <Container maxWidth='md' classes={{ root: classes.container }}>
+    <Container maxWidth='sm' classes={{ root: classes.container }}>
+      <Helmet title='jobs' />
       <ItemList items={jobs} loading={fetching} />
     </Container>
   )

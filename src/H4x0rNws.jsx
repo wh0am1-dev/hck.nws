@@ -1,8 +1,8 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { ThemeProvider } from '@material-ui/styles'
-import { CssBaseline } from '@material-ui/core'
+import { Helmet } from 'react-helmet'
+import { CssBaseline, ThemeProvider } from '@material-ui/core'
 import 'typeface-roboto'
 
 import theme from '@themes/dark'
@@ -12,9 +12,11 @@ import { Home, Stories, Jobs, About, NotFound } from '@views'
 import './index.css'
 
 export const asset = (path = '') => process.env.REACT_APP_BASENAME + path
+export { version } from '../package.json'
 
 const H4x0rNws = () => (
   <Provider store={store}>
+    <Helmet defaultTitle='H4X0R.nws' titleTemplate='H4X0R.nws · %s' />
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter basename={asset()}>
