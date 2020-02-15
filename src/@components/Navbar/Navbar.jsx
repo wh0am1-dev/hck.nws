@@ -15,6 +15,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  SwipeableDrawer,
   Toolbar,
   Typography
 } from '@material-ui/core'
@@ -150,14 +151,15 @@ const Navbar = ({ children }) => {
 
       <nav className={clsx(classes.drawer, classes.back)}>
         <Hidden smUp implementation='css'>
-          <Drawer
+          <SwipeableDrawer
             open={showDrawer}
+            onOpen={() => toggleDrawer(true)}
             onClose={() => toggleDrawer(false)}
             classes={{ paper: classes.drawerPaper }}
             ModalProps={{ keepMounted: true }}
           >
             {drawer}
-          </Drawer>
+          </SwipeableDrawer>
         </Hidden>
         <Hidden xsDown implementation='css'>
           <Drawer
