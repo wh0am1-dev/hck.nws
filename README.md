@@ -12,7 +12,7 @@ hacker news client progressive web application
 
 ## 💻 how-to 💻
 
-🔨 **`yarn start`** 🔨<br>
+🚧 **`yarn start`** 🚧<br>
 dev server
 
 🏗 **`yarn build`** 🏗<br>
