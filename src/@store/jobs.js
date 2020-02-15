@@ -13,16 +13,20 @@ export const selectJobsFetching = state => state.jobs.fetching ?? false
 
 // ==== actions ====
 
-const fetchJobsPending = createAction('stories:pending')
-const fetchJobsDone = createAction('stories:done')
-const fetchJobsError = createAction('stories:error')
+const fetchJobsPending = createAction('jobs:pending')
+const fetchJobsDone = createAction('jobs:done')
+const fetchJobsError = createAction('jobs:error')
 
-export const fetchJobs = () => dispatch => {
-  dispatch(fetchJobsPending())
-  getJobs({
-    done: jobs => dispatch(fetchJobsDone(jobs)),
-    error: err => dispatch(fetchJobsError(err))
-  })
+export const fetchJobs = (force = false) => (dispatch, getState) => {
+  const { jobs } = getState()
+
+  if (force || !jobs.items.length) {
+    dispatch(fetchJobsPending())
+    getJobs({
+      done: jobs => dispatch(fetchJobsDone(jobs)),
+      error: error => dispatch(fetchJobsError(`${error.name}: ${error.message}`))
+    })
+  }
 }
 
 // ==== reducer ====

@@ -20,13 +20,17 @@ const fetchStoriesPending = createAction('stories:pending')
 const fetchStoriesDone = createAction('stories:done')
 const fetchStoriesError = createAction('stories:error')
 
-export const fetchStories = () => dispatch => {
-  dispatch(fetchStoriesPending())
-  getStories({
-    max: stories.max,
-    done: stories => dispatch(fetchStoriesDone(stories)),
-    error: error => dispatch(fetchStoriesError(error))
-  })
+export const fetchStories = (force = false) => (dispatch, getState) => {
+  const { stories } = getState()
+
+  if (force || !stories.items.length) {
+    dispatch(fetchStoriesPending())
+    getStories({
+      max: stories.max,
+      done: stories => dispatch(fetchStoriesDone(stories)),
+      error: error => dispatch(fetchStoriesError(`${error.name}: ${error.message}`))
+    })
+  }
 }
 
 // ==== reducer ====
