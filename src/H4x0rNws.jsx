@@ -7,7 +7,7 @@ import 'typeface-roboto'
 
 import theme from '@themes/dark'
 import store from '@store'
-import { Navbar, Tabs } from '@components'
+import { Navbar } from '@components'
 import { Home, Stories, Jobs, About, NotFound } from '@views'
 import './index.css'
 
@@ -20,15 +20,15 @@ const H4x0rNws = () => (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter basename={asset()}>
-        <Navbar />
-        <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/stories' component={Stories} />
-          <Route path='/jobs' component={Jobs} />
-          <Route path='/about' component={About} />
-          <Route component={NotFound} />
-        </Switch>
-        <Route path={['/stories', '/jobs']} component={Tabs} />
+        <Navbar>
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/stories' component={Stories} />
+            <Route path='/jobs' component={Jobs} />
+            <Route path='/about' component={About} />
+            <Route component={NotFound} />
+          </Switch>
+        </Navbar>
       </BrowserRouter>
     </ThemeProvider>
   </Provider>
