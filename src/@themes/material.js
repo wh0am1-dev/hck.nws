@@ -15,7 +15,7 @@ const theme = responsiveFontSizes(
       }
     },
     typography: {
-      fontFamily: 'IBM Plex Sans, Helvetica Neue, Helvetica, Segoe UI, sans'
+      fontFamily: 'Segoe UI, Helvetica Neue, Helvetica, Roboto, sans'
     }
   })
 )

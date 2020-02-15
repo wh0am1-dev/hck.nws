@@ -3,7 +3,6 @@ import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/styles'
 import { CssBaseline } from '@material-ui/core'
-import 'typeface-ibm-plex-mono'
 import 'typeface-roboto'
 
 import theme from '@themes/dark'

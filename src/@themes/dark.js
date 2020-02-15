@@ -31,7 +31,7 @@ const theme = responsiveFontSizes(
       }
     },
     typography: {
-      fontFamily: 'Segoe UI, Helvetica Neue, Helvetica, sans'
+      fontFamily: 'Segoe UI, Helvetica Neue, Helvetica, Roboto, sans'
     }
   })
 )

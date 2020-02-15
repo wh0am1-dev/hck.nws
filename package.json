@@ -39,7 +39,6 @@
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "typeface-ibm-plex-mono": "^0.0.61",
     "typeface-roboto": "^0.0.75"
   },
   "devDependencies": {
