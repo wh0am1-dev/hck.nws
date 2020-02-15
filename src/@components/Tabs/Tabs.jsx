@@ -10,14 +10,15 @@ const Tabs = () => {
   const location = useLocation()
 
   const [section, setSection] = useState(location.pathname)
-  const onChange = useCallback((ev, newSection) => {
-    setSection(newSection)
-    history.push(newSection)
-  }, []) // eslint-disable-line
+  const onChange = useCallback(
+    (ev, newSection) => {
+      setSection(newSection)
+      history.push(newSection)
+    },
+    [setSection, history]
+  )
 
-  useEffect(() => {
-    setSection(location)
-  }, [location, setSection])
+  useEffect(() => setSection(location.pathname), [location, setSection])
 
   return (
     <BottomNavigation value={section} onChange={onChange} elevation={8} className={classes.root}>
