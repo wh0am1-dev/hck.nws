@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://gtfo.now.sh"><img src="https://raw.githubusercontent.com/GTFOCrew/gtfo/master/src/img/gtfo.png" width="25%"></a>
+<a href="https://neko250.github.io/H4X0R.nws"><img src="https://raw.githubusercontent.com/Neko250/H4X0R.nws/master/public/img/h4x0r.nws.png" width="25%"></a>
 
 # H4X0R.nws
 
