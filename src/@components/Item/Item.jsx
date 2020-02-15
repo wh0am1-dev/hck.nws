@@ -56,7 +56,7 @@ const Item = ({ item, divider, show, delay }) => {
             primary={item.title.toLowerCase()}
             secondary={new URL(item.url).hostname.toLowerCase()}
             primaryTypographyProps={{
-              variant: large ? 'h5' : 'body2',
+              variant: large ? 'h5' : 'h6',
               classes: { root: classes.title }
             }}
             secondaryTypographyProps={{
