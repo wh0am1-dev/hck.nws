@@ -1,3 +1,4 @@
+import _ from 'lodash-es'
 import { createAction, createReducer } from '@reduxjs/toolkit'
 import { getStories } from './api'
 
@@ -9,8 +10,8 @@ const stories = {
 
 // ==== selectors ====
 
-export const selectStories = state => state.stories.items ?? []
-export const selectStoriesFetching = state => state.stories.fetching ?? false
+export const selectStories = state => _.get(state, 'stories.items') ?? []
+export const selectStoriesFetching = state => _.get(state, 'stories.fetching') ?? false
 
 // ==== actions ====
 
