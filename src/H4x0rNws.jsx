@@ -19,8 +19,8 @@ const H4x0rNws = () => (
     <Helmet defaultTitle='H4X0R.nws' titleTemplate='H4X0R.nws · %s' />
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Snacks />
       <BrowserRouter basename={asset()}>
+        <Snacks />
         <Navbar>
           <Switch>
             <Route path='/' exact component={Home} />
