@@ -19,7 +19,7 @@ const SectionCard = ({ title, img, icon, onClick }) => {
       onTouchEnd={() => setElevate(false)}
     >
       <CardActionArea onClick={onClick}>
-        <CardMedia className={classes.cardMedia} component='img' src={img} title='' />
+        <CardMedia className={classes.cardMedia} component='img' src={img} title={title} />
         <CardContent className={classes.cardTitle}>
           <Grid container spacing={2} alignItems='center'>
             <Grid item classes={{ root: classes.icon }}>

@@ -40,8 +40,8 @@ const Navbar = ({ children }) => {
         <div className={classes.toolbar} />
 
         <center>
-          <ButtonBase className={classes.logoButton}>
-            <img src={logo} alt='logo' className={classes.logo} onClick={() => history.push('/')} />
+          <ButtonBase className={classes.logoButton} onClick={() => history.push('/')}>
+            <img src={logo} alt='logo' className={classes.logo} />
           </ButtonBase>
         </center>
 
