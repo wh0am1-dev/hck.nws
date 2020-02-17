@@ -1,6 +1,7 @@
 import _ from 'lodash-es'
 import { createAction, createReducer } from '@reduxjs/toolkit'
 import { getStories } from './api'
+import { addSnack } from './app'
 
 const stories = {
   max: 50,
@@ -19,7 +20,6 @@ export const maxStories = createAction('stories:max')
 
 const fetchStoriesPending = createAction('stories:pending')
 const fetchStoriesDone = createAction('stories:done')
-const fetchStoriesError = createAction('stories:error')
 
 export const fetchStories = (force = false) => (dispatch, getState) => {
   const { stories } = getState()
@@ -29,7 +29,8 @@ export const fetchStories = (force = false) => (dispatch, getState) => {
     getStories({
       max: stories.max,
       done: stories => dispatch(fetchStoriesDone(stories)),
-      error: error => dispatch(fetchStoriesError(`${error.name}: ${error.message}`))
+      error: error =>
+        dispatch(addSnack({ message: `${error.name}: ${error.message}`, variant: 'error' }))
     })
   }
 }
@@ -47,8 +48,5 @@ export default createReducer(stories, {
   [fetchStoriesDone]: (stories, { payload: items }) => {
     stories.fetching = false
     stories.items = items
-  },
-  [fetchStoriesError]: (stories, { payload: error }) => {
-    stories.error = error
   }
 })

@@ -1,6 +1,7 @@
 import _ from 'lodash-es'
 import { createAction, createReducer } from '@reduxjs/toolkit'
 import { getJobs } from './api'
+import { addSnack } from './app'
 
 const jobs = {
   items: [],
@@ -16,7 +17,6 @@ export const selectJobsFetching = state => _.get(state, 'jobs.fetching') ?? fals
 
 const fetchJobsPending = createAction('jobs:pending')
 const fetchJobsDone = createAction('jobs:done')
-const fetchJobsError = createAction('jobs:error')
 
 export const fetchJobs = (force = false) => (dispatch, getState) => {
   const { jobs } = getState()
@@ -25,7 +25,8 @@ export const fetchJobs = (force = false) => (dispatch, getState) => {
     dispatch(fetchJobsPending())
     getJobs({
       done: jobs => dispatch(fetchJobsDone(jobs)),
-      error: error => dispatch(fetchJobsError(`${error.name}: ${error.message}`))
+      error: error =>
+        dispatch(addSnack({ message: `${error.name}: ${error.message}`, variant: 'error' }))
     })
   }
 }
@@ -40,8 +41,5 @@ export default createReducer(jobs, {
   [fetchJobsDone]: (jobs, { payload: items }) => {
     jobs.fetching = false
     jobs.items = items
-  },
-  [fetchJobsError]: (jobs, { payload: error }) => {
-    jobs.error = error
   }
 })
