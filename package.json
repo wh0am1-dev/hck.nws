@@ -33,6 +33,8 @@
     "@reduxjs/toolkit": "^1.2.5",
     "axios": "^0.19.2",
     "clsx": "^1.1.0",
+    "lodash-es": "^4.17.15",
+    "notistack": "^0.9.7",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
