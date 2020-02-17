@@ -11,7 +11,6 @@ import { Navbar, Snacks } from '@components'
 import { Home, Stories, Jobs, About, NotFound } from '@views'
 import './index.css'
 
-export const asset = (path = '') => process.env.REACT_APP_BASENAME + path
 export { version } from '../package.json'
 
 const H4x0rNws = () => (
@@ -19,7 +18,7 @@ const H4x0rNws = () => (
     <Helmet defaultTitle='H4X0R.nws' titleTemplate='H4X0R.nws · %s' />
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter basename={asset()}>
+      <BrowserRouter basename='/H4X0R.nws'>
         <Snacks />
         <Navbar>
           <Switch>
