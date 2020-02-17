@@ -1,9 +1,11 @@
 import React from 'react'
 import { Container, Grid, Hidden, Typography } from '@material-ui/core'
-import { asset } from 'H4x0rNws'
 import { SectionCard } from '@components'
 import { StoriesIcon, JobsIcon } from '@components/icons'
 import useStyles from './Home.styles'
+import logo from '@svg/h4x0r.nws.svg'
+import storiesSplash from '@svg/stories.svg'
+import jobsSplash from '@svg/jobs.svg'
 
 const Home = props => {
   const classes = useStyles()
@@ -20,7 +22,7 @@ const Home = props => {
         <Hidden smDown>
           <Grid item xs={12} container spacing={4} alignItems='center' justify='center'>
             <Grid item>
-              <img src={asset('/img/h4x0r.nws.svg')} className={classes.logo} alt='' />
+              <img src={logo} className={classes.logo} alt='' />
             </Grid>
             <Grid item>
               <Typography variant='h2' classes={{ root: classes.title }}>
@@ -33,7 +35,7 @@ const Home = props => {
         <Grid item xs={12} md={6}>
           <SectionCard
             title='stories'
-            img={asset('/img/illustrations/stories.svg')}
+            img={storiesSplash}
             icon={<StoriesIcon />}
             onClick={() => props.history.push('/stories')}
           />
@@ -42,7 +44,7 @@ const Home = props => {
         <Grid item xs={12} md={6}>
           <SectionCard
             title='jobs'
-            img={asset('/img/illustrations/jobs.svg')}
+            img={jobsSplash}
             icon={<JobsIcon />}
             onClick={() => props.history.push('/jobs')}
           />

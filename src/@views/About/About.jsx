@@ -1,8 +1,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { Avatar, Box, Container, Grid, Link, Typography } from '@material-ui/core'
-import { asset } from 'H4x0rNws'
 import useStyles from './About.styles'
+import logo from '@svg/h4x0r.nws.svg'
 
 const About = props => {
   const classes = useStyles()
@@ -13,7 +13,7 @@ const About = props => {
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <Box className={classes.logoBox}>
-            <Avatar src={asset('/img/h4x0r.nws.svg')} className={classes.logo} />
+            <Avatar src={logo} className={classes.logo} />
           </Box>
         </Grid>
         <Grid item xs={12}>

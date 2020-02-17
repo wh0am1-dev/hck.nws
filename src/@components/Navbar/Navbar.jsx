@@ -19,10 +19,11 @@ import {
   Toolbar,
   Typography
 } from '@material-ui/core'
-import { asset, version } from 'H4x0rNws'
+import { version } from 'H4x0rNws'
 import { Tabs } from '@components'
 import { HomeIcon, InfoIcon, MenuIcon, JobsIcon, StoriesIcon } from '@components/icons'
 import useStyles from './Navbar.styles'
+import logo from '@svg/h4x0r.nws.svg'
 
 const Navbar = ({ children }) => {
   const classes = useStyles()
@@ -40,12 +41,7 @@ const Navbar = ({ children }) => {
 
         <center>
           <ButtonBase className={classes.logoButton}>
-            <img
-              src={asset('/img/h4x0r.nws.svg')}
-              alt='logo'
-              className={classes.logo}
-              onClick={() => history.push('/')}
-            />
+            <img src={logo} alt='logo' className={classes.logo} onClick={() => history.push('/')} />
           </ButtonBase>
         </center>
 
