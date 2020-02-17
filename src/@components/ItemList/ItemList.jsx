@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import { CircularProgress, List } from '@material-ui/core'
+import { CircularProgress, Grid, List, Typography } from '@material-ui/core'
 import { Item } from '@components'
+import { ErrorIcon } from '@components/icons'
 import useStyles from './ItemList.styles'
 
 const ItemList = ({ items, loading }) => {
@@ -16,11 +17,32 @@ const ItemList = ({ items, loading }) => {
     return () => clearTimeout(showTimeout)
   }, [items])
 
+  if (loading === 'error')
+    return (
+      <section className={classes.center}>
+        <Grid container spacing={0} justify='center' alignItems='center'>
+          <Grid item xs={12}>
+            <ErrorIcon style={{ fontSize: 120, marginBottom: 16 }} />
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant='h5'>
+              oops...{' '}
+              <span role='img' aria-label='oops'>
+                😖
+              </span>
+              <br />
+              something went wrong
+            </Typography>
+          </Grid>
+        </Grid>
+      </section>
+    )
+
   if (loading)
     return (
-      <div className={classes.loading}>
+      <section className={classes.center}>
         <CircularProgress />
-      </div>
+      </section>
     )
 
   return (
@@ -39,11 +61,12 @@ const ItemList = ({ items, loading }) => {
 }
 
 ItemList.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.object).isRequired,
-  loading: PropTypes.bool
+  items: PropTypes.arrayOf(PropTypes.object),
+  loading: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
 }
 
 ItemList.defaultProps = {
+  items: [],
   loading: false
 }
 

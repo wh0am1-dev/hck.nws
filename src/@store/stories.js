@@ -6,7 +6,8 @@ import { addSnack } from './app'
 const stories = {
   max: 50,
   items: [],
-  fetching: false
+  fetching: false,
+  error: false
 }
 
 // ==== selectors ====
@@ -20,6 +21,7 @@ export const maxStories = createAction('stories:max')
 
 const fetchStoriesPending = createAction('stories:pending')
 const fetchStoriesDone = createAction('stories:done')
+const fetchStoriesError = createAction('stories:error')
 
 export const fetchStories = (force = false) => (dispatch, getState) => {
   const { stories } = getState()
@@ -29,8 +31,10 @@ export const fetchStories = (force = false) => (dispatch, getState) => {
     getStories({
       max: stories.max,
       done: stories => dispatch(fetchStoriesDone(stories)),
-      error: error =>
+      error: error => {
+        dispatch(fetchStoriesError())
         dispatch(addSnack({ message: `${error.name}: ${error.message}`, variant: 'error' }))
+      }
     })
   }
 }
@@ -48,5 +52,8 @@ export default createReducer(stories, {
   [fetchStoriesDone]: (stories, { payload: items }) => {
     stories.fetching = false
     stories.items = items
+  },
+  [fetchStoriesError]: stories => {
+    stories.fetching = 'error'
   }
 })

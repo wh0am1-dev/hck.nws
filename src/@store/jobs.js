@@ -5,7 +5,8 @@ import { addSnack } from './app'
 
 const jobs = {
   items: [],
-  fetching: false
+  fetching: false,
+  error: false
 }
 
 // ==== selectors ====
@@ -17,6 +18,7 @@ export const selectJobsFetching = state => _.get(state, 'jobs.fetching') ?? fals
 
 const fetchJobsPending = createAction('jobs:pending')
 const fetchJobsDone = createAction('jobs:done')
+const fetchJobsError = createAction('jobs:error')
 
 export const fetchJobs = (force = false) => (dispatch, getState) => {
   const { jobs } = getState()
@@ -25,8 +27,10 @@ export const fetchJobs = (force = false) => (dispatch, getState) => {
     dispatch(fetchJobsPending())
     getJobs({
       done: jobs => dispatch(fetchJobsDone(jobs)),
-      error: error =>
+      error: error => {
+        dispatch(fetchJobsError())
         dispatch(addSnack({ message: `${error.name}: ${error.message}`, variant: 'error' }))
+      }
     })
   }
 }
@@ -41,5 +45,8 @@ export default createReducer(jobs, {
   [fetchJobsDone]: (jobs, { payload: items }) => {
     jobs.fetching = false
     jobs.items = items
+  },
+  [fetchJobsError]: jobs => {
+    jobs.fetching = 'error'
   }
 })
