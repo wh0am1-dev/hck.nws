@@ -7,7 +7,7 @@ import 'typeface-roboto'
 
 import theme from '@themes/dark'
 import store from '@store'
-import { Navbar } from '@components'
+import { Navbar, Snacks } from '@components'
 import { Home, Stories, Jobs, About, NotFound } from '@views'
 import './index.css'
 
@@ -19,6 +19,7 @@ const H4x0rNws = () => (
     <Helmet defaultTitle='H4X0R.nws' titleTemplate='H4X0R.nws · %s' />
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Snacks />
       <BrowserRouter basename={asset()}>
         <Navbar>
           <Switch>
