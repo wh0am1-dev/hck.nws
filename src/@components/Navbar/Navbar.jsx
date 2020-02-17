@@ -149,7 +149,7 @@ const Navbar = ({ children }) => {
         </Toolbar>
       </AppBar>
 
-      <nav className={clsx(classes.drawer, classes.back)}>
+      <section className={clsx(classes.drawer, classes.back)}>
         <Hidden smUp implementation='css'>
           <SwipeableDrawer
             open={showDrawer}
@@ -170,7 +170,7 @@ const Navbar = ({ children }) => {
             {drawer}
           </Drawer>
         </Hidden>
-      </nav>
+      </section>
 
       <section className={classes.content}>
         <div className={classes.toolbar} />
