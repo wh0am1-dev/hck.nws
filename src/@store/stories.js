@@ -48,6 +48,6 @@ export default createReducer(stories, {
     stories.items = items
   },
   [fetchStoriesError]: (stories, { payload: error }) => {
-    stories.error = error.message
+    stories.error = error
   }
 })

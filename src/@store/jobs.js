@@ -41,6 +41,6 @@ export default createReducer(jobs, {
     jobs.items = items
   },
   [fetchJobsError]: (jobs, { payload: error }) => {
-    jobs.error = error.message
+    jobs.error = error
   }
 })
