@@ -1,7 +1,7 @@
 import React, { createRef, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { SnackbarProvider, useSnackbar } from 'notistack'
-import { Button } from '@material-ui/core'
+import { Button, useMediaQuery, useTheme } from '@material-ui/core'
 import { selectSnack } from '@store/app'
 import useStyles from './Snacks.styles'
 
@@ -12,7 +12,8 @@ const SnackWatcher = () => {
   useEffect(() => {
     if (snack) {
       enqueueSnackbar(snack.message ?? 'snack !', {
-        variant: snack.variant ?? 'default'
+        variant: snack.variant ?? 'default',
+        persist: true
       })
     }
   }, [snack, enqueueSnackbar])
@@ -22,20 +23,24 @@ const SnackWatcher = () => {
 
 const Snacks = () => {
   const classes = useStyles()
+  const theme = useTheme()
+  const topRight = useMediaQuery(theme.breakpoints.up('sm'))
+
   const snackRef = createRef()
   const onDismiss = key => () => snackRef.current.closeSnackbar(key)
 
   return (
     <SnackbarProvider
       ref={snackRef}
-      maxSnack={3}
-      anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
+      maxSnack={1}
+      anchorOrigin={{ horizontal: topRight ? 'right' : 'center', vertical: 'top' }}
       action={key => (
         <Button onClick={onDismiss(key)} variant='contained' color='secondary' size='small'>
           ok
         </Button>
       )}
       classes={{
+        root: classes.root,
         variantInfo: classes.info,
         variantError: classes.error
       }}
