@@ -184,8 +184,9 @@ const Navbar = ({ children }) => {
       <section className={classes.content}>
         <div className={classes.toolbar} />
         {children}
-        <Route path={['/stories', '/jobs']} component={Tabs} />
       </section>
+
+      <Route path={['/stories', '/jobs']} component={Tabs} />
     </main>
   )
 }
