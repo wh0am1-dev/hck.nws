@@ -21,7 +21,7 @@ import {
 } from '@material-ui/core'
 import { version } from 'H4x0rNws'
 import { Tabs } from '@components'
-import { HomeIcon, InfoIcon, MenuIcon, JobsIcon, StoriesIcon } from '@components/icons'
+import { HomeIcon, InfoIcon, MenuIcon, JobsIcon, RefreshIcon, StoriesIcon } from '@components/icons'
 import useStyles from './Navbar.styles'
 import logo from '@svg/h4x0r.nws.svg'
 
@@ -142,6 +142,14 @@ const Navbar = ({ children }) => {
           <Typography variant='h5' noWrap color='secondary' classes={{ root: classes.title }}>
             H4X0R.nws{title && ` · ${title}`}
           </Typography>
+          <Route
+            path={['/stories', '/jobs']}
+            render={props => (
+              <IconButton edge='end' color='inherit' onClick={() => window.location.reload()} {...props}>
+                <RefreshIcon />
+              </IconButton>
+            )}
+          />
         </Toolbar>
       </AppBar>
 
