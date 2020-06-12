@@ -7,6 +7,7 @@ export {
   InfoRounded as InfoIcon,
   MenuRounded as MenuIcon,
   ModeCommentRounded as CommentIcon,
+  RefreshRounded as RefreshIcon,
   SubdirectoryArrowRightRounded as SectionIcon,
   WorkRounded as JobIcon
 } from '@material-ui/icons'
