@@ -6,9 +6,6 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(20),
     marginLeft: 'auto',
     marginRight: 'auto'
-  },
-  list: {
-    paddingBottom: 64
   }
 }))
 
