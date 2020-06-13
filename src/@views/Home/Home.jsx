@@ -38,6 +38,7 @@ const Home = props => {
             img={storiesSplash}
             icon={<StoriesIcon />}
             onClick={() => props.history.push('/stories')}
+            tabIndex={1}
           />
         </Grid>
 
@@ -47,6 +48,7 @@ const Home = props => {
             img={jobsSplash}
             icon={<JobsIcon />}
             onClick={() => props.history.push('/jobs')}
+            tabIndex={2}
           />
         </Grid>
       </Grid>
