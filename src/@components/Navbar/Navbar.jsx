@@ -26,9 +26,9 @@ import useStyles from './Navbar.styles'
 import logo from '@svg/h4x0r.nws.svg'
 
 const Navbar = ({ children }) => {
-  const classes = useStyles()
   const history = useHistory()
   const location = useLocation()
+  const classes = useStyles({ tabs: ['/stories', '/jobs'].includes(location.pathname) })
   const [showDrawer, toggleDrawer] = useState(false)
   const title = location.pathname === '/' ? null : location.pathname.slice(1)
 

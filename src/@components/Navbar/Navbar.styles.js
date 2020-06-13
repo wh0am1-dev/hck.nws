@@ -19,7 +19,17 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
   content: {
     position: 'relative',
-    flexGrow: 1
+    flexGrow: 1,
+    overflow: 'hidden'
+  },
+  scroll: {
+    maxHeight: props => `calc(100vh - 56px${props.tabs ? ' - 56px' : ''})`,
+    '@media (min-width:0px) and (orientation: landscape)': {
+      maxHeight: props => `calc(100vh - 48px${props.tabs ? ' - 56px' : ''})`
+    },
+    '@media (min-width:600px)': {
+      maxHeight: props => `calc(100vh - 64px${props.tabs ? ' - 56px' : ''})`
+    }
   },
   menuButton: {
     marginRight: theme.spacing(2)
