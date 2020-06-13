@@ -49,7 +49,7 @@ const ItemList = ({ items, loading }) => {
     <List className={classes.list}>
       {items.map((item, i, list) => (
         <Item
-          key={i}
+          key={item?.id}
           item={item}
           show={show}
           delay={2000 * Math.log10(i)}
