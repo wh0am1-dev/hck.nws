@@ -5,7 +5,7 @@ import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '
 import { SectionIcon } from '@components/icons'
 import useStyles from './SectionCard.styles'
 
-const SectionCard = ({ title, img, icon, onClick }) => {
+const SectionCard = ({ title, img, icon, onClick, tabIndex }) => {
   const classes = useStyles()
   const [elevate, setElevate] = useState(false)
 
@@ -18,7 +18,7 @@ const SectionCard = ({ title, img, icon, onClick }) => {
       onTouchStart={() => setElevate(true)}
       onTouchEnd={() => setElevate(false)}
     >
-      <CardActionArea onClick={onClick}>
+      <CardActionArea onClick={onClick} tabIndex={tabIndex}>
         <CardMedia className={classes.cardMedia} component='img' src={img} title={title} />
         <CardContent className={classes.cardTitle}>
           <Grid container spacing={2} alignItems='center'>
@@ -41,14 +41,16 @@ SectionCard.propTypes = {
   title: PropTypes.string,
   img: PropTypes.string,
   icon: PropTypes.element,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  tabIndex: PropTypes.number
 }
 
 SectionCard.defaultProps = {
   title: 'SectionCard',
   img: '',
   icon: <SectionIcon />,
-  onClick: () => {}
+  onClick: () => {},
+  tabIndex: 0
 }
 
 export default SectionCard
