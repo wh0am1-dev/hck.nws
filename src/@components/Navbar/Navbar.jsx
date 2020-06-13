@@ -19,6 +19,7 @@ import {
   Toolbar,
   Typography
 } from '@material-ui/core'
+import SimpleBar from 'simplebar-react'
 import { version } from 'H4x0rNws'
 import { Tabs } from '@components'
 import { HomeIcon, InfoIcon, MenuIcon, JobsIcon, RefreshIcon, StoriesIcon } from '@components/icons'
@@ -183,7 +184,7 @@ const Navbar = ({ children }) => {
 
       <section className={classes.content}>
         <div className={classes.toolbar} />
-        {children}
+        <SimpleBar className={classes.scroll}>{children}</SimpleBar>
       </section>
 
       <Route path={['/stories', '/jobs']} component={Tabs} />
