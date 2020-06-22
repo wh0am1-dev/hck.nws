@@ -4,7 +4,7 @@ import { Avatar, Box, Container, Grid, Link, Typography } from '@material-ui/cor
 import useStyles from './About.styles'
 import logo from '@svg/h4x0r.nws.svg'
 
-const About = props => {
+const About = () => {
   const classes = useStyles()
 
   return (

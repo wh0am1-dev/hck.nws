@@ -7,7 +7,7 @@ import logo from '@svg/h4x0r.nws.svg'
 import storiesSplash from '@svg/stories.svg'
 import jobsSplash from '@svg/jobs.svg'
 
-const Home = props => {
+const Home = ({ history }) => {
   const classes = useStyles()
 
   return (
@@ -37,7 +37,7 @@ const Home = props => {
             title='stories'
             img={storiesSplash}
             icon={<StoriesIcon />}
-            onClick={() => props.history.push('/stories')}
+            onClick={() => history.push('/stories')}
             tabIndex={1}
           />
         </Grid>
@@ -47,7 +47,7 @@ const Home = props => {
             title='jobs'
             img={jobsSplash}
             icon={<JobsIcon />}
-            onClick={() => props.history.push('/jobs')}
+            onClick={() => history.push('/jobs')}
             tabIndex={2}
           />
         </Grid>
