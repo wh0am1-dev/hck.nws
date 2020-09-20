@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { CircularProgress, Grid, List, Typography } from '@material-ui/core'
-import { Item } from '@components'
 import { ErrorIcon } from '@components/icons'
 import useStyles from './ItemList.styles'
+import Item from './Item'
 
 const ItemList = ({ items, loading }) => {
   const classes = useStyles()

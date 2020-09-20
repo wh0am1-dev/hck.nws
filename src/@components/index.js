@@ -1,4 +1,3 @@
-export { default as Item } from './Item'
 export { default as ItemList } from './ItemList'
 export { default as Navbar } from './Navbar'
 export { default as SectionCard } from './SectionCard'
