@@ -3,28 +3,18 @@ import clsx from 'clsx'
 import { Route, useHistory, useLocation } from 'react-router-dom'
 import {
   AppBar,
-  ButtonBase,
-  Chip,
-  Divider,
   Drawer,
-  Grid,
   Hidden,
   IconButton,
-  Link,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   SwipeableDrawer,
   Toolbar,
   Typography
 } from '@material-ui/core'
 import SimpleBar from 'simplebar-react'
-import { version } from 'H4x0rNws'
 import { Tabs } from '@components'
-import { HomeIcon, InfoIcon, MenuIcon, JobsIcon, RefreshIcon, StoriesIcon } from '@components/icons'
+import { MenuIcon, RefreshIcon } from '@components/icons'
+import DrawerContent from './DrawerContent'
 import useStyles from './Navbar.styles'
-import logo from '@svg/h4x0r.nws.svg'
 
 const Navbar = ({ children }) => {
   const history = useHistory()
@@ -32,99 +22,6 @@ const Navbar = ({ children }) => {
   const classes = useStyles({ tabs: ['/stories', '/jobs'].includes(location.pathname) })
   const [showDrawer, toggleDrawer] = useState(false)
   const title = location.pathname === '/' ? null : location.pathname.slice(1)
-
-  const activeColor = path => (location.pathname === path ? 'primary' : undefined)
-
-  const drawer = (
-    <>
-      <nav onClick={() => toggleDrawer(false)}>
-        <div className={classes.toolbar} />
-
-        <center>
-          <ButtonBase className={classes.logoButton} onClick={() => history.push('/')}>
-            <img src={logo} alt='logo' className={classes.logo} />
-          </ButtonBase>
-        </center>
-
-        <List disablePadding classes={{ root: classes.toolbar }}>
-          <ListItem button key='home' onClick={() => history.push('/')}>
-            <ListItemIcon>
-              <HomeIcon color={activeColor('/')} />
-            </ListItemIcon>
-            <ListItemText
-              primary='H4X0R.nws'
-              primaryTypographyProps={{ color: activeColor('/') }}
-            />
-          </ListItem>
-        </List>
-
-        <Divider />
-
-        <List>
-          <ListItem button key='stories' onClick={() => history.push('/stories')}>
-            <ListItemIcon>
-              <StoriesIcon color={activeColor('/stories')} />
-            </ListItemIcon>
-            <ListItemText
-              primary='stories'
-              primaryTypographyProps={{ color: activeColor('/stories') }}
-            />
-          </ListItem>
-          <ListItem button key='jobs' onClick={() => history.push('/jobs')}>
-            <ListItemIcon>
-              <JobsIcon color={activeColor('/jobs')} />
-            </ListItemIcon>
-            <ListItemText primary='jobs' primaryTypographyProps={{ color: activeColor('/jobs') }} />
-          </ListItem>
-        </List>
-
-        <Divider />
-
-        <List>
-          <ListItem button key='about' onClick={() => history.push('/about')}>
-            <ListItemIcon>
-              <InfoIcon color={activeColor('/about')} />
-            </ListItemIcon>
-            <ListItemText
-              primary='about'
-              primaryTypographyProps={{ color: activeColor('/about') }}
-            />
-          </ListItem>
-        </List>
-      </nav>
-
-      <Divider />
-
-      <Grid container className={classes.footer}>
-        <Grid item xs={12}>
-          <Typography variant='body1' align='center'>
-            hacker news pwa
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant='body2' align='center'>
-            made by{' '}
-            <Link href='https://github.com/Neko250' target='_blank'>
-              neko250
-            </Link>
-          </Typography>
-        </Grid>
-        <Grid item xs={12} container justify='center'>
-          <Chip
-            label={`v${version}`}
-            clickable
-            component='a'
-            href='https://github.com/Neko250/H4X0R.nws'
-            target='_blank'
-            size='small'
-            color='primary'
-            variant='outlined'
-            className={classes.version}
-          />
-        </Grid>
-      </Grid>
-    </>
-  )
 
   return (
     <main className={classes.root}>
@@ -168,7 +65,12 @@ const Navbar = ({ children }) => {
             classes={{ paper: classes.drawerPaper }}
             ModalProps={{ keepMounted: true }}
           >
-            {drawer}
+            <DrawerContent
+              classes={classes}
+              history={history}
+              location={location}
+              toggleDrawer={toggleDrawer}
+            />
           </SwipeableDrawer>
         </Hidden>
         <Hidden xsDown implementation='css'>
@@ -177,7 +79,12 @@ const Navbar = ({ children }) => {
             variant='permanent'
             open
           >
-            {drawer}
+            <DrawerContent
+              classes={classes}
+              history={history}
+              location={location}
+              toggleDrawer={toggleDrawer}
+            />
           </Drawer>
         </Hidden>
       </section>
