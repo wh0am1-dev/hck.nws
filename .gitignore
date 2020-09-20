@@ -12,6 +12,7 @@
 /build
 
 # misc
+TODO.md
 tmp
 .DS_Store
 .env.local
