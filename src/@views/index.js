@@ -1,5 +1,7 @@
 export { default as About } from './About'
+export { default as Error } from './Error'
 export { default as Home } from './Home'
+export { default as Item } from './Item'
 export { default as Jobs } from './Jobs'
 export { default as NotFound } from './NotFound'
 export { default as Stories } from './Stories'
