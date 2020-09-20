@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { CssBaseline, ThemeProvider } from '@material-ui/core'
 import 'simplebar/dist/simplebar.min.css'
@@ -19,11 +19,12 @@ const H4x0rNws = () => (
     <Helmet defaultTitle='H4X0R.nws' titleTemplate='H4X0R.nws · %s' />
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Snacks />
       <BrowserRouter basename='/H4X0R.nws'>
-        <Snacks />
         <Navbar>
           <Switch>
-            <Route path='/' exact component={Home} />
+            <Redirect from='/' to='/stories' exact />
+            <Route path='/menu' component={Home} />
             <Route path='/stories' component={Stories} />
             <Route path='/jobs' component={Jobs} />
             <Route path='/about' component={About} />
