@@ -36,3 +36,14 @@ export const getJobs = ({ done, error }) =>
         .catch(error)
     })
     .catch(error)
+
+export const getItem = ({ id, done, error }) =>
+  axios
+    .get(api.item(id))
+    .then(res =>
+      axios
+        .all(res.data.kids.map(comment => axios.get(api.item(comment))))
+        .then(comments => done({ ...res.data, kids: comments.map(c => c.data) }))
+        .catch(error)
+    )
+    .catch(error)
