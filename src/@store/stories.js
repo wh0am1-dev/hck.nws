@@ -11,8 +11,7 @@ const stories = {
 
 // ==== selectors ====
 
-export const selectStories = state => state?.stories?.items ?? []
-export const selectStoriesFetching = state => state?.stories?.fetching ?? false
+export const selectStories = state => state?.stories
 
 // ==== actions ====
 

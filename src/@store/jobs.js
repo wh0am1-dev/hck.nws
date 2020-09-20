@@ -10,8 +10,7 @@ const jobs = {
 
 // ==== selectors ====
 
-export const selectJobs = state => state?.jobs?.items ?? []
-export const selectJobsFetching = state => state?.jobs?.fetching ?? false
+export const selectJobs = state => state?.jobs
 
 // ==== actions ====
 
