@@ -1,11 +1,10 @@
-import _ from 'lodash-es'
 import { createAction, createReducer } from '@reduxjs/toolkit'
 
 const app = { snack: null }
 
 // ==== selectors ====
 
-export const selectSnack = state => _.get(state, 'app.snack')
+export const selectSnack = state => state?.app?.snack
 
 // ==== actions ====
 
