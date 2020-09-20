@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Container } from '@material-ui/core'
-import { ItemList } from '@components'
+import { useSelector } from '@store'
 import { selectStories, selectStoriesFetching, fetchStories } from '@store/stories'
+import { ItemList } from '@components'
 import useStyles from './Stories.styles'
 
 const Stories = () => {

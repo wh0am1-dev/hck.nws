@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Container } from '@material-ui/core'
-import { ItemList } from '@components'
+import { useSelector } from '@store'
 import { selectJobs, selectJobsFetching, fetchJobs } from '@store/jobs'
+import { ItemList } from '@components'
 import useStyles from './Jobs.styles'
 
 const Jobs = () => {

@@ -1,7 +1,7 @@
 import React, { createRef, useEffect } from 'react'
-import { useSelector } from 'react-redux'
 import { SnackbarProvider, useSnackbar } from 'notistack'
 import { Button, useMediaQuery, useTheme } from '@material-ui/core'
+import { useSelector } from '@store'
 import { selectSnack } from '@store/app'
 import useStyles from './Snacks.styles'
 
