@@ -27,33 +27,19 @@ const DrawerContent = ({ classes, history, location, toggleDrawer }) => {
         <div className={classes.toolbar} />
 
         <center>
-          <ButtonBase className={classes.logoButton} onClick={() => history.push('/menu')}>
+          <ButtonBase className={classes.logoButton} onClick={() => history.push('/')}>
             <img src={logo} alt='logo' className={classes.logo} />
           </ButtonBase>
         </center>
 
-        <List disablePadding classes={{ root: classes.toolbar }}>
-          <ListItem button key='home' onClick={() => history.push('/menu')}>
-            <ListItemIcon>
-              <HomeIcon color={activeColor('/menu', location)} />
-            </ListItemIcon>
-            <ListItemText
-              primary='H4X0R.nws'
-              primaryTypographyProps={{ color: activeColor('/', location) }}
-            />
-          </ListItem>
-        </List>
-
-        <Divider />
-
         <List>
-          <ListItem button key='stories' onClick={() => history.push('/stories')}>
+          <ListItem button key='stories' onClick={() => history.push('/')}>
             <ListItemIcon>
-              <StoriesIcon color={activeColor('/stories', location)} />
+              <StoriesIcon color={activeColor('/', location)} />
             </ListItemIcon>
             <ListItemText
               primary='stories'
-              primaryTypographyProps={{ color: activeColor('/stories', location) }}
+              primaryTypographyProps={{ color: activeColor('/', location) }}
             />
           </ListItem>
           <ListItem button key='jobs' onClick={() => history.push('/jobs')}>
