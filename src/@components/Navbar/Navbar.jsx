@@ -11,9 +11,9 @@ import {
   Typography
 } from '@material-ui/core'
 import SimpleBar from 'simplebar-react'
-import { Tabs } from '@components'
 import { MenuIcon, RefreshIcon } from '@components/icons'
 import DrawerContent from './DrawerContent'
+import Tabs from './Tabs'
 import useStyles from './Navbar.styles'
 
 const Navbar = ({ children }) => {
@@ -94,7 +94,7 @@ const Navbar = ({ children }) => {
         <SimpleBar className={classes.scroll}>{children}</SimpleBar>
       </section>
 
-      <Route path={['/stories', '/jobs']} component={Tabs} />
+      <Route path={['/', '/jobs']} exact component={Tabs} />
     </main>
   )
 }

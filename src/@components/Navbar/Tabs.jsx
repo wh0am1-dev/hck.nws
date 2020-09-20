@@ -22,7 +22,7 @@ const Tabs = () => {
 
   return (
     <BottomNavigation value={section} onChange={onChange} elevation={8} className={classes.root}>
-      <BottomNavigationAction label='stories' value='/stories' icon={<StoriesIcon />} />
+      <BottomNavigationAction label='stories' value='/' icon={<StoriesIcon />} />
       <BottomNavigationAction label='jobs' value='/jobs' icon={<JobsIcon />} />
     </BottomNavigation>
   )
