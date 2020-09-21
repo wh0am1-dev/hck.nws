@@ -1,0 +1,5 @@
+export const STORIES = '/'
+export const JOBS = '/jobs'
+export const ITEM = '/item/:id'
+export const ERROR = '/error'
+export const NOT_FOUND = '/404'

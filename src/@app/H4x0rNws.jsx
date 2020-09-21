@@ -12,8 +12,6 @@ import { Navbar, Snacks } from '@components'
 import { Item, Stories, Jobs, About, Error, NotFound } from '@views'
 import './index.css'
 
-export { version } from '../package.json'
-
 const H4x0rNws = () => (
   <Provider store={store}>
     <Helmet defaultTitle='H4X0R.nws' titleTemplate='H4X0R.nws · %s' />

@@ -11,7 +11,7 @@ import {
   ListItemText,
   Typography
 } from '@material-ui/core'
-import { version } from 'H4x0rNws'
+import { version } from '@app'
 import { InfoIcon, JobsIcon, StoriesIcon } from '@components/icons'
 import logo from '@svg/h4x0r.nws.svg'
 
