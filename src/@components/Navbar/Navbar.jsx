@@ -21,7 +21,7 @@ const Navbar = ({ children }) => {
   const location = useLocation()
   const classes = useStyles({ tabs: ['/stories', '/jobs'].includes(location.pathname) })
   const [showDrawer, toggleDrawer] = useState(false)
-  const title = location.pathname === '/' ? null : location.pathname.slice(1)
+  const title = location.pathname === '/' ? 'stories' : location.pathname.slice(1)
 
   return (
     <main className={classes.root}>
