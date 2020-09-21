@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { Container } from '@material-ui/core'
-import { getItem } from '@store/api'
+import { api } from '@app'
 import { addSnack } from '@store/app'
 import { Loading } from '@components'
 import useStyles from './Item.styles'
@@ -20,7 +20,7 @@ const Item = () => {
   useEffect(() => {
     setLoading(true)
 
-    getItem({
+    api.getItem({
       id,
       done: item => {
         setLoading(false)
