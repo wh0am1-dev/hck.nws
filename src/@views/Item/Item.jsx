@@ -31,7 +31,7 @@ const Item = () => {
         dispatch(addSnack({ message: `${error.name}: ${error.message}`, variant: 'error' }))
       }
     })
-  }, [])
+  }, [id, dispatch])
 
   if (loading === 'error') return <Redirect to='/error' />
   if (loading) return <Loading />

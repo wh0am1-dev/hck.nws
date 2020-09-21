@@ -12,7 +12,7 @@ import {
   Typography
 } from '@material-ui/core'
 import { version } from 'H4x0rNws'
-import { HomeIcon, InfoIcon, JobsIcon, StoriesIcon } from '@components/icons'
+import { InfoIcon, JobsIcon, StoriesIcon } from '@components/icons'
 import logo from '@svg/h4x0r.nws.svg'
 
 const DrawerContent = ({ classes, history, location, toggleDrawer }) => {

@@ -13,7 +13,7 @@ const Jobs = () => {
   const dispatch = useDispatch()
   const jobs = useSelector(selectJobs)
 
-  useEffect(() => dispatch(fetchJobs()), []) // eslint-disable-line
+  useEffect(() => dispatch(fetchJobs()), [dispatch])
 
   if (jobs.fetching === 'error') return <Redirect to='/error' />
   if (jobs.fetching) return <Loading />

@@ -13,7 +13,7 @@ const Stories = () => {
   const dispatch = useDispatch()
   const stories = useSelector(selectStories)
 
-  useEffect(() => dispatch(fetchStories()), []) // eslint-disable-line
+  useEffect(() => dispatch(fetchStories()), [dispatch])
 
   if (stories.fetching === 'error') return <Redirect to='/error' />
   if (stories.fetching) return <Loading />
