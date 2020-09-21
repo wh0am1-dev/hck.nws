@@ -31,6 +31,15 @@ const useStyles = makeStyles(theme => ({
       maxHeight: props => `calc(100vh - 64px${props.tabs ? ' - 56px' : ''})`
     }
   },
+  drawerScroll: {
+    maxHeight: 'calc(100vh - 56px)',
+    '@media (min-width:0px) and (orientation: landscape)': {
+      maxHeight: 'calc(100vh - 48px)'
+    },
+    '@media (min-width:600px)': {
+      maxHeight: 'calc(100vh - 64px)'
+    }
+  },
   menuButton: {
     marginRight: theme.spacing(2)
   },
