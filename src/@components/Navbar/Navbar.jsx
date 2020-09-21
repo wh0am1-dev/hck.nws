@@ -11,9 +11,9 @@ import {
   Typography
 } from '@material-ui/core'
 import SimpleBar from 'simplebar-react'
+import { Tabs } from '@components'
 import { MenuIcon, RefreshIcon } from '@components/icons'
 import DrawerContent from './DrawerContent'
-import Tabs from './Tabs'
 import useStyles from './Navbar.styles'
 
 const Navbar = ({ children }) => {
@@ -41,7 +41,8 @@ const Navbar = ({ children }) => {
             H4X0R.nws{title && ` · ${title}`}
           </Typography>
           <Route
-            path={['/stories', '/jobs']}
+            path={['/', '/jobs']}
+            exact
             render={props => (
               <IconButton
                 edge='end'
