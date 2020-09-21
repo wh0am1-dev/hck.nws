@@ -15,6 +15,8 @@ const api = {
   item: id => item + id + '.json'
 }
 
+// === === === === === === === ===
+
 export const getStories = ({ max, done, error }) =>
   axios
     .get(api.stories.top)
@@ -26,6 +28,8 @@ export const getStories = ({ max, done, error }) =>
     })
     .catch(error)
 
+// === === === === === === === ===
+
 export const getJobs = ({ done, error }) =>
   axios
     .get(api.jobs)
@@ -36,6 +40,8 @@ export const getJobs = ({ done, error }) =>
         .catch(error)
     })
     .catch(error)
+
+// === === === === === === === ===
 
 export const getItem = ({ id, done, error }) =>
   axios
