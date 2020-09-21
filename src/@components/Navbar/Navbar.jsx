@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import clsx from 'clsx'
 import { Route, useHistory, useLocation } from 'react-router-dom'
 import {
@@ -11,6 +11,7 @@ import {
   Typography
 } from '@material-ui/core'
 import SimpleBar from 'simplebar-react'
+import { routes } from '@app'
 import { Tabs } from '@components'
 import { MenuIcon, RefreshIcon } from '@components/icons'
 import DrawerContent from './DrawerContent'
@@ -19,9 +20,14 @@ import useStyles from './Navbar.styles'
 const Navbar = ({ children }) => {
   const history = useHistory()
   const location = useLocation()
-  const classes = useStyles({ tabs: ['/stories', '/jobs'].includes(location.pathname) })
+  const classes = useStyles({ tabs: [routes.STORIES, routes.JOBS].includes(location.pathname) })
   const [showDrawer, toggleDrawer] = useState(false)
-  const title = location.pathname === '/' ? 'stories' : location.pathname.slice(1)
+
+  const title = useMemo(
+    () =>
+      location.pathname === routes.STORIES ? 'stories' : location.pathname.split('/').slice(-1),
+    [location]
+  )
 
   return (
     <main className={classes.root}>
