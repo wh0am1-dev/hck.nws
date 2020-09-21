@@ -16,12 +16,11 @@ const Jobs = () => {
   useEffect(() => dispatch(fetchJobs()), [dispatch])
 
   if (jobs.fetching === 'error') return <Redirect to='/error' />
-  if (jobs.fetching) return <Loading />
 
   return (
     <Container maxWidth='sm' classes={{ root: classes.container }}>
       <Helmet title='jobs' />
-      <ItemList items={jobs.items} />
+      {jobs.fetching ? <Loading /> : <ItemList items={jobs.items} />}
     </Container>
   )
 }

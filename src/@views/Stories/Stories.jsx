@@ -16,12 +16,11 @@ const Stories = () => {
   useEffect(() => dispatch(fetchStories()), [dispatch])
 
   if (stories.fetching === 'error') return <Redirect to='/error' />
-  if (stories.fetching) return <Loading />
 
   return (
     <Container maxWidth='sm' classes={{ root: classes.container }}>
       <Helmet title='stories' />
-      <ItemList items={stories.items} />
+      {stories.fetching ? <Loading /> : <ItemList items={stories.items} />}
     </Container>
   )
 }

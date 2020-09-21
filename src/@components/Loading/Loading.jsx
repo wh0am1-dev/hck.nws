@@ -6,11 +6,9 @@ const Loading = () => {
   const classes = useStyles()
 
   return (
-    <Container maxWidth='sm' classes={{ root: classes.container }}>
-      <section className={classes.center}>
-        <CircularProgress />
-      </section>
-    </Container>
+    <section className={classes.center}>
+      <CircularProgress />
+    </section>
   )
 }
 
