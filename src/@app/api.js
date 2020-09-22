@@ -1,18 +1,16 @@
 import axios from 'axios'
 
-const base = 'https://hacker-news.firebaseio.com/v0/'
-const item = 'https://hacker-news.firebaseio.com/v0/item/'
-
+const url = 'https://hacker-news.firebaseio.com/v0'
 const api = {
   stories: {
-    top: base + 'topstories.json',
-    new: base + 'newstories.json',
-    best: base + 'beststories.json'
+    top: `${url}/topstories.json`,
+    new: `${url}/newstories.json`,
+    best: `${url}/beststories.json`
   },
-  jobs: base + 'jobstories.json',
-  show: base + 'showstories.json',
-  ask: base + 'askstories.json',
-  item: id => item + id + '.json'
+  jobs: `${url}/jobstories.json`,
+  show: `${url}/showstories.json`,
+  ask: `${url}/askstories.json`,
+  item: id => `${url}/item/${id}.json`,
 }
 
 // === === === === === === === ===
@@ -20,26 +18,26 @@ const api = {
 export const getStories = ({ max, done, error }) =>
   axios
     .get(api.stories.top)
-    .then(res => {
+    .then(res =>
       axios
         .all(res.data.slice(0, max).map(id => axios.get(api.item(id))))
         .then(res => done(res.map(r => r.data).filter(item => item.type === 'story')))
-        .catch(error)
-    })
-    .catch(error)
+        .catch(err => error && error(err))
+    )
+    .catch(err => error && error(err))
 
 // === === === === === === === ===
 
 export const getJobs = ({ done, error }) =>
   axios
     .get(api.jobs)
-    .then(res => {
+    .then(res =>
       axios
         .all(res.data.map(id => axios.get(api.item(id))))
         .then(res => done(res.map(r => r.data)))
-        .catch(error)
-    })
-    .catch(error)
+        .catch(err => error && error(err))
+    )
+    .catch(err => error && error(err))
 
 // === === === === === === === ===
 
@@ -50,6 +48,6 @@ export const getItem = ({ id, done, error }) =>
       axios
         .all(res.data.kids.map(comment => axios.get(api.item(comment))))
         .then(comments => done({ ...res.data, kids: comments.map(c => c.data) }))
-        .catch(error)
+        .catch(err => error && error(err))
     )
-    .catch(error)
+    .catch(err => error && error(err))
