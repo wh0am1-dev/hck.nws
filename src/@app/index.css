@@ -1,21 +1,34 @@
 /* application styles */
 
-@keyframes spin {
-  100% { transform: rotate(360deg) }
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-@keyframes float {
-  0% { transform: translateY(0) }
-  25% { transform: translateY(-8px) }
-  50% { transform: translateY(0) }
-  75% { transform: translateY(8px) }
+::-webkit-scrollbar {
+  display: none;
 }
 
-@keyframes swing {
-  0% { transform: rotate(0deg) }
-  25% { transform: rotate(-22.5deg) }
-  50% { transform: rotate(0deg) }
-  75% { transform: rotate(22.5deg) }
+::-moz-selection {
+  color: #111;
+  background: #ff9800;
+}
+
+::selection {
+  color: #111;
+  background: #ff9800;
+}
+
+.nunito {
+  font-family: 'Nunito', 'Helvetica Neue', 'Segoe UI', sans-serif;
+}
+
+.rubik {
+  font-family: 'Rubik Mono One', 'Helvetica Neue', 'Segoe UI', sans-serif;
+}
+
+.fira {
+  font-family: 'Fira Mono', monospace;
 }
 
 .sticky {
@@ -45,4 +58,40 @@
 
 .pe-none {
   pointer-events: none;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-8px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-22.5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(22.5deg);
+  }
 }
