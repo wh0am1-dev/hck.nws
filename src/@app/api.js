@@ -11,6 +11,7 @@ const api = {
   show: `${url}/showstories.json`,
   ask: `${url}/askstories.json`,
   item: id => `${url}/item/${id}.json`,
+  og: 'https://ogaas.vercel.app/api/og'
 }
 
 // === === === === === === === ===
@@ -50,4 +51,12 @@ export const getItem = ({ id, done, error }) =>
         .then(comments => done({ ...res.data, kids: comments.map(c => c.data) }))
         .catch(err => error && error(err))
     )
+    .catch(err => error && error(err))
+
+// === === === === === === === ===
+
+export const getOG = ({ url, done, error }) =>
+  axios
+    .post(api.og, { url })
+    .then(res => done(res.data))
     .catch(err => error && error(err))
