@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2)
   },
   title: {
-    fontWeight: 600,
+    fontWeight: 800,
     flexGrow: 1
   },
   logoButton: {
