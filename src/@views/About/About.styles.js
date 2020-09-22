@@ -6,6 +6,9 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2)
   },
   logoBox: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     animation: 'float 7s linear infinite'
   },
   logo: {
@@ -15,11 +18,12 @@ const useStyles = makeStyles(theme => ({
     marginRight: 'auto',
     marginBottom: theme.spacing(2),
     marginLeft: 'auto',
+    borderRadius: '100%',
     boxShadow: theme.shadows[12],
     animation: 'swing 13s linear infinite'
   },
   title: {
-    fontWeight: 600
+    fontWeight: 800
   },
   toolbar: theme.mixins.toolbar
 }))

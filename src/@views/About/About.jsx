@@ -1,8 +1,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { Avatar, Box, Container, Grid, Link, Typography } from '@material-ui/core'
+import { Box, Container, Grid, Link, Typography } from '@material-ui/core'
 import useStyles from './About.styles'
-import logo from '@svg/h4x0r.nws.svg'
+import { LogoSvg } from '@svg'
 
 const About = () => {
   const classes = useStyles()
@@ -13,11 +13,11 @@ const About = () => {
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <Box className={classes.logoBox}>
-            <Avatar src={logo} className={classes.logo} />
+            <LogoSvg className={classes.logo} />
           </Box>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant='h3' align='center' classes={{ root: classes.title }}>
+          <Typography variant='h3' align='center' className={classes.title}>
             H4X0R.nws
           </Typography>
         </Grid>
