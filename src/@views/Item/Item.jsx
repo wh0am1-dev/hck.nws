@@ -34,14 +34,20 @@ const Item = () => {
   }, [id, dispatch])
 
   if (loading === 'error') return <Redirect to='/error' />
-  if (loading) return <Loading />
 
   return (
     <Container maxWidth='sm' classes={{ root: classes.container }}>
       <Helmet title={item.title} />
-      <pre>
-        <code>{JSON.stringify(item, null, 2)}</code>
-      </pre>
+
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <pre>
+            <code>{JSON.stringify(item, null, 2)}</code>
+          </pre>
+        </>
+      )}
     </Container>
   )
 }
