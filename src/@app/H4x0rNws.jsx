@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { CssBaseline, ThemeProvider } from '@material-ui/core'
 import 'simplebar/dist/simplebar.min.css'
-import 'typeface-roboto'
+import 'typeface-nunito'
 
 import theme from '@themes/dark'
 import store from '@store'
