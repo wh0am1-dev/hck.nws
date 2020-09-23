@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
-import { Redirect } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { Container } from '@material-ui/core'
@@ -33,7 +32,7 @@ const Item = () => {
     })
   }, [id, dispatch])
 
-  if (loading === 'error') return <Redirect to='/error' />
+  if (loading === 'error') return <Error />
 
   return (
     <Container maxWidth='sm' classes={{ root: classes.container }}>
