@@ -2,28 +2,33 @@ import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { Container } from '@material-ui/core'
+import { Container, Grid, Link, Typography } from '@material-ui/core'
 import { api } from '@app'
 import { addSnack } from '@store/app'
-import { Loading } from '@components'
+import { Error } from '@views'
+import { Comments, Loading, OGCard } from '@components'
 import useStyles from './Item.styles'
 
 const Item = () => {
   const { id } = useParams()
-  const dispatch = useDispatch()
   const classes = useStyles()
+  const dispatch = useDispatch()
 
   const [loading, setLoading] = useState(false)
   const [item, setItem] = useState({})
+  const [metadata, setMetadata] = useState(null)
 
   useEffect(() => {
     setLoading(true)
-
     api.getItem({
       id,
       done: item => {
-        setLoading(false)
         setItem(item)
+        setLoading(false)
+        api.getOG({
+          url: item.url,
+          done: metadata => setMetadata(metadata)
+        })
       },
       error: error => {
         setLoading('error')
@@ -41,11 +46,36 @@ const Item = () => {
       {loading ? (
         <Loading />
       ) : (
-        <>
-          <pre>
-            <code>{JSON.stringify(item, null, 2)}</code>
-          </pre>
-        </>
+        <Grid container spacing={4}>
+          <Grid item xs={12}>
+            <Typography variant='h3' align='center' className={classes.title}>
+              {item.title?.toLowerCase()}
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant='subtitle1' align='center'>
+              <Link href={item.url} target='_blank'>
+                {item.url ? new URL(item.url).hostname.toLowerCase() : ''}
+              </Link>
+            </Typography>
+            <Typography variant='subtitle1' align='center'>
+              posted by{' '}
+              <Link href={`https://news.ycombinator.com/user?id=${item.by}`} target='_blank'>
+                {item.by?.toLowerCase() || ''}
+              </Link>
+            </Typography>
+          </Grid>
+          {metadata && (
+            <Grid item xs={12}>
+              <OGCard {...metadata} />
+            </Grid>
+          )}
+          {item.kids?.length > 0 && (
+            <Grid item xs={12}>
+              <Comments list={item.kids} />
+            </Grid>
+          )}
+        </Grid>
       )}
     </Container>
   )
