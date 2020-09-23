@@ -52,6 +52,7 @@ const Item = () => {
               {item.title?.toLowerCase()}
             </Typography>
           </Grid>
+
           <Grid item xs={12}>
             <Typography variant='subtitle1' align='center'>
               <Link href={item.url} target='_blank'>
@@ -65,16 +66,24 @@ const Item = () => {
               </Link>
             </Typography>
           </Grid>
+
           {metadata && (
             <Grid item xs={12}>
               <OGCard {...metadata} />
             </Grid>
           )}
+
           {item.kids?.length > 0 && (
             <Grid item xs={12}>
               <Comments list={item.kids} />
             </Grid>
           )}
+
+          <Grid item xs={12} container justify='center'>
+            <Link href={`https://news.ycombinator.com/item?id=${id}`} target='_blank'>
+              view on hn
+            </Link>
+          </Grid>
         </Grid>
       )}
     </Container>
