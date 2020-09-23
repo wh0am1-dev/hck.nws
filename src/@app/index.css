@@ -19,6 +19,15 @@
   background: #ff9800;
 }
 
+a {
+  color: #ff9800;
+  text-decoration: none;
+}
+
+.MuiTimelineItem-missingOppositeContent:before {
+  content: none !important;
+}
+
 .nunito {
   font-family: 'Nunito', 'Helvetica Neue', 'Segoe UI', sans-serif;
 }
