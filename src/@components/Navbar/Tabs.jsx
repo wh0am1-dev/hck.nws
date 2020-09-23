@@ -4,7 +4,7 @@ import { BottomNavigation, BottomNavigationAction } from '@material-ui/core'
 import { StoriesIcon, JobsIcon } from '@components/icons'
 import useStyles from './Tabs.styles'
 
-const Tabs = () => {
+const Tabs = ({ closeDrawer }) => {
   const classes = useStyles()
   const history = useHistory()
   const location = useLocation()
@@ -12,10 +12,11 @@ const Tabs = () => {
   const [section, setSection] = useState(location.pathname)
   const onChange = useCallback(
     (ev, newSection) => {
+      closeDrawer()
       setSection(newSection)
       history.push(newSection)
     },
-    [setSection, history]
+    [closeDrawer, setSection, history]
   )
 
   useEffect(() => setSection(location.pathname), [location, setSection])
