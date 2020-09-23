@@ -81,11 +81,7 @@ const Navbar = ({ children }) => {
           </SwipeableDrawer>
         </Hidden>
         <Hidden xsDown implementation='css'>
-          <Drawer
-            classes={{ paper: classes.drawerPaper, root: classes.back }}
-            variant='permanent'
-            open
-          >
+          <Drawer classes={{ paper: classes.drawerPaper }} variant='permanent' open>
             <DrawerContent
               classes={classes}
               history={history}
@@ -101,7 +97,11 @@ const Navbar = ({ children }) => {
         <SimpleBar className={classes.scroll}>{children}</SimpleBar>
       </section>
 
-      <Route path={['/', '/jobs']} exact component={Tabs} />
+      <Route
+        exact
+        path={['/', '/jobs']}
+        render={() => <Tabs closeDrawer={() => toggleDrawer(false)} />}
+      />
     </main>
   )
 }
