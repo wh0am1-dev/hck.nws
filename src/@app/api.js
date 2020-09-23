@@ -47,7 +47,7 @@ export const getItem = ({ id, done, error }) =>
     .get(api.item(id))
     .then(res =>
       axios
-        .all(res.data.kids.map(comment => axios.get(api.item(comment))))
+        .all(res.data.kids?.map(comment => axios.get(api.item(comment))) || [])
         .then(comments => done({ ...res.data, kids: comments.map(c => c.data) }))
         .catch(err => error && error(err))
     )
