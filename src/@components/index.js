@@ -1,3 +1,4 @@
+export { default as Comments } from './Comments'
 export { default as ItemList } from './ItemList'
 export { default as Loading } from './Loading'
 export { default as Navbar } from './Navbar'
