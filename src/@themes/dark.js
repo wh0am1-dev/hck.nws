@@ -35,6 +35,18 @@ const theme = responsiveFontSizes(
     },
     size: {
       drawer: 240
+    },
+    overrides: {
+      MuiButton: {
+        text: {
+          fontWeight: 600,
+          textTransform: 'lowercase'
+        },
+        outlined: {
+          fontWeight: 600,
+          textTransform: 'lowercase'
+        }
+      }
     }
   })
 )
