@@ -22,14 +22,12 @@ const About = () => {
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant='body1' align='center'>
+          <Typography variant='body1' align='center' gutterBottom>
             hacker news client pwa
           </Typography>
-        </Grid>
-        <Grid item xs={12}>
           <Typography variant='body2' align='center'>
             <Link href='https://github.com/Neko250/H4X0R.nws' target='_blank'>
-              https://github.com/neko250/H4X0R.nws
+              github.com/neko250/H4X0R.nws
             </Link>
           </Typography>
         </Grid>

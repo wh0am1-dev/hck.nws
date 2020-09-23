@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { Container, Grid, Typography } from '@material-ui/core'
 import { ErrorIcon } from '@components/icons'
 import useStyles from './Error.styles'
@@ -8,6 +9,7 @@ const Error = () => {
 
   return (
     <Container maxWidth='sm' classes={{ root: classes.container }}>
+      <Helmet title='error' />
       <section className={classes.center}>
         <Grid container spacing={0} justify='center' alignItems='center'>
           <Grid item xs={12}>
