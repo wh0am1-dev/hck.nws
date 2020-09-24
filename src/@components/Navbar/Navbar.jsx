@@ -41,13 +41,8 @@ const Navbar = ({ children }) => {
           <Route
             path={['/', '/jobs', '/item/:id']}
             exact
-            render={props => (
-              <IconButton
-                edge='end'
-                color='inherit'
-                onClick={() => window.location.reload()}
-                {...props}
-              >
+            render={() => (
+              <IconButton edge='end' color='inherit' onClick={() => window.location.reload()}>
                 <RefreshIcon />
               </IconButton>
             )}
