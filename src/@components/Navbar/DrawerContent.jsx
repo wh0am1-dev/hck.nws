@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import {
   ButtonBase,
   Chip,
   Divider,
   Grid,
-  Link,
   List,
   ListItem,
   ListItemIcon,
@@ -18,7 +18,7 @@ import logo from '@svg/h4x0r.nws.svg'
 
 const DrawerContent = ({ classes, history, location, toggleDrawer }) => {
   const activeColor = useCallback(
-    (path, location) => (location.pathname === path ? 'primary' : undefined),
+    (path, location) => (location.pathname === path ? 'primary' : 'textPrimary'),
     []
   )
 
@@ -29,44 +29,52 @@ const DrawerContent = ({ classes, history, location, toggleDrawer }) => {
       <SimpleBar className={classes.drawerScroll}>
         <nav onClick={() => toggleDrawer(false)}>
           <center>
-            <ButtonBase className={classes.logoButton} onClick={() => history.push('/')}>
-              <img src={logo} alt='logo' className={classes.logo} />
+            <ButtonBase className={classes.logoButton}>
+              <Link to='/'>
+                <img src={logo} alt='logo' className={classes.logo} />
+              </Link>
             </ButtonBase>
           </center>
 
           <List>
-            <ListItem button key='stories' onClick={() => history.push('/')}>
-              <ListItemIcon>
-                <StoriesIcon color={activeColor('/', location)} />
-              </ListItemIcon>
-              <ListItemText
-                primary='stories'
-                primaryTypographyProps={{ color: activeColor('/', location) }}
-              />
-            </ListItem>
-            <ListItem button key='jobs' onClick={() => history.push('/jobs')}>
-              <ListItemIcon>
-                <JobsIcon color={activeColor('/jobs', location)} />
-              </ListItemIcon>
-              <ListItemText
-                primary='jobs'
-                primaryTypographyProps={{ color: activeColor('/jobs', location) }}
-              />
-            </ListItem>
+            <Link to='/'>
+              <ListItem button key='stories'>
+                <ListItemIcon>
+                  <StoriesIcon color={activeColor('/', location)} />
+                </ListItemIcon>
+                <ListItemText
+                  primary='stories'
+                  primaryTypographyProps={{ color: activeColor('/', location) }}
+                />
+              </ListItem>
+            </Link>
+            <Link to='/jobs'>
+              <ListItem button key='jobs'>
+                <ListItemIcon>
+                  <JobsIcon color={activeColor('/jobs', location)} />
+                </ListItemIcon>
+                <ListItemText
+                  primary='jobs'
+                  primaryTypographyProps={{ color: activeColor('/jobs', location) }}
+                />
+              </ListItem>
+            </Link>
           </List>
 
           <Divider />
 
           <List>
-            <ListItem button key='about' onClick={() => history.push('/about')}>
-              <ListItemIcon>
-                <InfoIcon color={activeColor('/about', location)} />
-              </ListItemIcon>
-              <ListItemText
-                primary='about'
-                primaryTypographyProps={{ color: activeColor('/about', location) }}
-              />
-            </ListItem>
+            <Link to='/about'>
+              <ListItem button key='about'>
+                <ListItemIcon>
+                  <InfoIcon color={activeColor('/about', location)} />
+                </ListItemIcon>
+                <ListItemText
+                  primary='about'
+                  primaryTypographyProps={{ color: activeColor('/about', location) }}
+                />
+              </ListItem>
+            </Link>
           </List>
         </nav>
 
