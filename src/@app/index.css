@@ -19,6 +19,17 @@
   background: #ff9800;
 }
 
+body {
+  overscroll-behavior-y: contain;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+strong,
+b {
+  font-weight: 'bolder';
+}
+
 a {
   color: #ff9800;
   text-decoration: none;
