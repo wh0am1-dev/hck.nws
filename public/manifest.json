@@ -1,6 +1,7 @@
 {
   "short_name": "H4X0R.nws",
   "name": "H4X0R.nws",
+  "description": "hacker news client pwa",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#ff9800",
