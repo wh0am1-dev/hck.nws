@@ -10,6 +10,7 @@ script:
 deploy:
   strategy: git
   provider: pages
+  skip_cleanup: true
   token: $GITHUB_TOKEN
   target_branch: gh-pages
   keep_history: false
