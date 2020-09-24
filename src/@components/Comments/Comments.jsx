@@ -36,7 +36,7 @@ const Comments = ({ list }) => {
                     {comment.by}:
                   </Typography>
                   <Typography variant='body1'>
-                    <div dangerouslySetInnerHTML={{ __html: comment.text }} />
+                    <span dangerouslySetInnerHTML={{ __html: comment.text }} />
                   </Typography>
                 </TimelineContent>
               </TimelineItem>
