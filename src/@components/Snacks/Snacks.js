@@ -11,7 +11,7 @@ const SnackWatcher = () => {
 
   useEffect(() => {
     if (snack) {
-      enqueueSnackbar(snack.message ?? 'snack !', {
+      enqueueSnackbar(snack.msg ?? 'snack !', {
         variant: snack.variant ?? 'default',
         persist: true
       })

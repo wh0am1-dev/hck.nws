@@ -27,7 +27,7 @@ export const fetchJobs = (force = false) => (dispatch, getState) => {
       done: jobs => dispatch(fetchJobsDone(jobs)),
       error: error => {
         dispatch(fetchJobsError())
-        dispatch(addSnack({ message: `${error.name}: ${error.message}`, variant: 'error' }))
+        dispatch(addSnack({ error }))
       }
     })
   }

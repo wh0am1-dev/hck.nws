@@ -31,7 +31,7 @@ export const fetchStories = (force = false) => (dispatch, getState) => {
       done: stories => dispatch(fetchStoriesDone(stories)),
       error: error => {
         dispatch(fetchStoriesError())
-        dispatch(addSnack({ message: `${error.name}: ${error.message}`, variant: 'error' }))
+        dispatch(addSnack({ error }))
       }
     })
   }

@@ -32,7 +32,7 @@ const Item = () => {
       },
       error: error => {
         setLoading('error')
-        dispatch(addSnack({ message: `${error.name}: ${error.message}`, variant: 'error' }))
+        dispatch(addSnack({ error }))
       }
     })
   }, [id, dispatch])
