@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { Container, Grid, Link, Typography } from '@material-ui/core'
+import { Button, Container, Grid, Link, Typography } from '@material-ui/core'
 import { api } from '@app'
 import { addSnack } from '@store/app'
 import { Error } from '@views'
@@ -83,6 +83,12 @@ const Item = () => {
               <OGCard {...metadata} />
             </Grid>
           )}
+
+          <Grid item xs={12} container justify='center'>
+            <Link href={item.url} target='_blank' underline='none'>
+              <Button color='primary'>{item.url}</Button>
+            </Link>
+          </Grid>
 
           {item.kids?.length > 0 && (
             <Grid item xs={12}>
