@@ -1,40 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Typography
-} from '@material-ui/core'
+import { Card, CardActionArea, CardMedia, CardContent, Link, Typography } from '@material-ui/core'
 
-const OGCard = ({ author, date, description, image, logo, publisher, title, url, video }) => (
+const OGCard = ({ url, title, description, image, logo }) => (
   <Card elevation={4}>
-    {(image || logo) && (
-      <CardActionArea onClick={() => window.open(url, '_blank')}>
-        <CardMedia component='img' src={image || logo} />
-      </CardActionArea>
-    )}
-    <CardContent>
-      <Typography variant='h5' gutterBottom>
-        {title}
-      </Typography>
-      {(author || date) && (
-        <Typography variant='subtitle1' component='span' gutterBottom>
-          {author} {date && `@ ${date?.split('T').slice(0, 1)}`}
-        </Typography>
-      )}
-      <Typography variant='body1' gutterBottom>
-        {description}
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button color='primary' onClick={() => window.open(url, '_blank')}>
-        view story
-      </Button>
-    </CardActions>
+    <CardActionArea>
+      <Link href={url} target='_blank' underline='none'>
+        {(image || logo) && <CardMedia component='img' src={image || logo} />}
+        <CardContent>
+          <Typography variant='h5' gutterBottom color='textPrimary'>
+            {title}
+          </Typography>
+          <Typography variant='body1' gutterBottom color='textPrimary'>
+            <span dangerouslySetInnerHTML={{ __html: description }} />
+          </Typography>
+        </CardContent>
+      </Link>
+    </CardActionArea>
   </Card>
 )
 
