@@ -39,7 +39,7 @@ const Navbar = ({ children }) => {
             H4X0R.nws{title && ` · ${title}`}
           </Typography>
           <Route
-            path={['/', '/jobs']}
+            path={['/', '/jobs', '/item/:id']}
             exact
             render={props => (
               <IconButton
