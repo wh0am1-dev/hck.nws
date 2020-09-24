@@ -1,15 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import clsx from 'clsx'
 import { Route, useHistory, useLocation } from 'react-router-dom'
-import {
-  AppBar,
-  Drawer,
-  Hidden,
-  IconButton,
-  SwipeableDrawer,
-  Toolbar,
-  Typography
-} from '@material-ui/core'
+import { AppBar, Drawer, Hidden, IconButton, Toolbar, Typography } from '@material-ui/core'
 import SimpleBar from 'simplebar-react'
 import { routes } from '@app'
 import { MenuIcon, RefreshIcon } from '@components/icons'
@@ -65,7 +57,7 @@ const Navbar = ({ children }) => {
 
       <section className={clsx(classes.drawer, classes.back)}>
         <Hidden smUp implementation='css'>
-          <SwipeableDrawer
+          <Drawer
             open={showDrawer}
             onOpen={() => toggleDrawer(true)}
             onClose={() => toggleDrawer(false)}
@@ -78,7 +70,7 @@ const Navbar = ({ children }) => {
               location={location}
               toggleDrawer={toggleDrawer}
             />
-          </SwipeableDrawer>
+          </Drawer>
         </Hidden>
         <Hidden xsDown implementation='css'>
           <Drawer classes={{ paper: classes.drawerPaper }} variant='permanent' open>
