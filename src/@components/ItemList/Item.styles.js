@@ -1,6 +1,9 @@
 import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
+  link: {
+    color: theme.palette.text.primary
+  },
   item: {
     borderRadius: theme.shape.borderRadius,
     transition: theme.transitions.create('all', {

@@ -28,7 +28,7 @@ const Item = ({ item }) => {
   if (!item || !item.url) return null
 
   return (
-    <Link to={`/item/${item.id}`}>
+    <Link to={`/item/${item.id}`} className={classes.link}>
       <ListItem
         button
         classes={{ root: clsx(classes.item, elevate && classes.hover) }}
