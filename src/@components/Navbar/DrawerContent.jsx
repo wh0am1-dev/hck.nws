@@ -1,10 +1,11 @@
 import React, { useCallback } from 'react'
-import { Link } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
 import {
   ButtonBase,
   Chip,
   Divider,
   Grid,
+  Link,
   List,
   ListItem,
   ListItemIcon,
@@ -18,7 +19,7 @@ import logo from '@svg/h4x0r.nws.svg'
 
 const DrawerContent = ({ classes, history, location, toggleDrawer }) => {
   const activeColor = useCallback(
-    (path, location) => (location.pathname === path ? 'primary' : 'textPrimary'),
+    (path, location) => (location.pathname === path ? 'primary' : undefined),
     []
   )
 
@@ -30,14 +31,14 @@ const DrawerContent = ({ classes, history, location, toggleDrawer }) => {
         <nav onClick={() => toggleDrawer(false)}>
           <center>
             <ButtonBase className={classes.logoButton}>
-              <Link to='/'>
+              <RouterLink to='/'>
                 <img src={logo} alt='logo' className={classes.logo} />
-              </Link>
+              </RouterLink>
             </ButtonBase>
           </center>
 
           <List>
-            <Link to='/'>
+            <RouterLink to='/'>
               <ListItem button key='stories'>
                 <ListItemIcon>
                   <StoriesIcon color={activeColor('/', location)} />
@@ -47,8 +48,8 @@ const DrawerContent = ({ classes, history, location, toggleDrawer }) => {
                   primaryTypographyProps={{ color: activeColor('/', location) }}
                 />
               </ListItem>
-            </Link>
-            <Link to='/jobs'>
+            </RouterLink>
+            <RouterLink to='/jobs'>
               <ListItem button key='jobs'>
                 <ListItemIcon>
                   <JobsIcon color={activeColor('/jobs', location)} />
@@ -58,13 +59,13 @@ const DrawerContent = ({ classes, history, location, toggleDrawer }) => {
                   primaryTypographyProps={{ color: activeColor('/jobs', location) }}
                 />
               </ListItem>
-            </Link>
+            </RouterLink>
           </List>
 
           <Divider />
 
           <List>
-            <Link to='/about'>
+            <RouterLink to='/about'>
               <ListItem button key='about'>
                 <ListItemIcon>
                   <InfoIcon color={activeColor('/about', location)} />
@@ -74,7 +75,7 @@ const DrawerContent = ({ classes, history, location, toggleDrawer }) => {
                   primaryTypographyProps={{ color: activeColor('/about', location) }}
                 />
               </ListItem>
-            </Link>
+            </RouterLink>
           </List>
         </nav>
 
