@@ -85,9 +85,11 @@ const Item = () => {
           )}
 
           <Grid item xs={12} container justify='center'>
-            <Link href={item.url} target='_blank' underline='none'>
-              <Button color='primary'>{item.url}</Button>
-            </Link>
+            <Typography variant='subtitle2' align='center'>
+              <Link href={item.url} target='_blank'>
+                {item.url}
+              </Link>
+            </Typography>
           </Grid>
 
           {item.kids?.length > 0 && (
