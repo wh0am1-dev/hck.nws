@@ -1,18 +1,16 @@
+os: linux
+dist: xenial
 language: node_js
-
 node_js:
   - 10.15.3
-
 install:
   - yarn install
-
 script:
   - yarn build
-
 deploy:
+  strategy: git
   provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
+  token: $GITHUB_TOKEN
   target_branch: gh-pages
   keep_history: false
   local_dir: build/
