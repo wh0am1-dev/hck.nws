@@ -17,6 +17,7 @@ const Item = () => {
   const [loading, setLoading] = useState(false)
   const [item, setItem] = useState({})
   const [metadata, setMetadata] = useState(null)
+  const [showOGCard, setShowOGCard] = useState(false)
 
   useEffect(() => {
     setLoading(true)
@@ -24,10 +25,13 @@ const Item = () => {
       id,
       done: item => {
         setItem(item)
-        setLoading(false)
         api.getOG({
           url: item.url,
-          done: metadata => setMetadata(metadata)
+          done: metadata => {
+            setMetadata(metadata)
+            setLoading(false)
+          },
+          error: () => setLoading(false)
         })
       },
       error: error => {
@@ -36,6 +40,13 @@ const Item = () => {
       }
     })
   }, [id, dispatch])
+
+  useEffect(() => {
+    if (metadata) {
+      const { title, description, image, logo } = metadata
+      if (title || description || image || logo) setShowOGCard(true)
+    }
+  }, [metadata, setShowOGCard])
 
   if (loading === 'error') return <Error />
 
@@ -67,7 +78,7 @@ const Item = () => {
             </Typography>
           </Grid>
 
-          {metadata && (
+          {showOGCard && (
             <Grid item xs={12}>
               <OGCard {...metadata} />
             </Grid>
