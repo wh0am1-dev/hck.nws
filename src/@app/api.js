@@ -48,7 +48,9 @@ export const getItem = ({ id, done, error }) =>
     .then(res =>
       axios
         .all(res.data.kids?.map(comment => axios.get(api.item(comment))) || [])
-        .then(comments => done({ ...res.data, kids: comments.map(c => c.data) }))
+        .then(comments =>
+          done({ ...res.data, kids: comments.map(c => c.data).filter(c => !c.deleted) })
+        )
         .catch(err => error && error(err))
     )
     .catch(err => error && error(err))
