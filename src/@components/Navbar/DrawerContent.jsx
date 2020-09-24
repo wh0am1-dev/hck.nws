@@ -19,7 +19,8 @@ import logo from '@svg/h4x0r.nws.svg'
 
 const DrawerContent = ({ classes, history, location, toggleDrawer }) => {
   const activeColor = useCallback(
-    (path, location) => (location.pathname === path ? 'primary' : undefined),
+    (path, location, icon = false) =>
+      location.pathname === path ? 'primary' : icon ? undefined : 'textPrimary',
     []
   )
 
@@ -41,7 +42,7 @@ const DrawerContent = ({ classes, history, location, toggleDrawer }) => {
             <RouterLink to='/'>
               <ListItem button key='stories'>
                 <ListItemIcon>
-                  <StoriesIcon color={activeColor('/', location)} />
+                  <StoriesIcon color={activeColor('/', location, true)} />
                 </ListItemIcon>
                 <ListItemText
                   primary='stories'
@@ -52,7 +53,7 @@ const DrawerContent = ({ classes, history, location, toggleDrawer }) => {
             <RouterLink to='/jobs'>
               <ListItem button key='jobs'>
                 <ListItemIcon>
-                  <JobsIcon color={activeColor('/jobs', location)} />
+                  <JobsIcon color={activeColor('/jobs', location, true)} />
                 </ListItemIcon>
                 <ListItemText
                   primary='jobs'
@@ -68,7 +69,7 @@ const DrawerContent = ({ classes, history, location, toggleDrawer }) => {
             <RouterLink to='/about'>
               <ListItem button key='about'>
                 <ListItemIcon>
-                  <InfoIcon color={activeColor('/about', location)} />
+                  <InfoIcon color={activeColor('/about', location, true)} />
                 </ListItemIcon>
                 <ListItemText
                   primary='about'
