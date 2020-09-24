@@ -52,13 +52,7 @@ const Navbar = ({ children }) => {
 
       <section className={clsx(classes.drawer, classes.back)}>
         <Hidden smUp implementation='css'>
-          <Drawer
-            open={showDrawer}
-            onOpen={() => toggleDrawer(true)}
-            onClose={() => toggleDrawer(false)}
-            classes={{ paper: classes.drawerPaper }}
-            ModalProps={{ keepMounted: true }}
-          >
+          <Drawer open={showDrawer} classes={{ paper: classes.drawerPaper }}>
             <DrawerContent
               classes={classes}
               history={history}
@@ -68,7 +62,7 @@ const Navbar = ({ children }) => {
           </Drawer>
         </Hidden>
         <Hidden xsDown implementation='css'>
-          <Drawer classes={{ paper: classes.drawerPaper }} variant='permanent' open>
+          <Drawer open variant='permanent' classes={{ paper: classes.drawerPaper }}>
             <DrawerContent
               classes={classes}
               history={history}
