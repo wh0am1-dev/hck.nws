@@ -1,17 +1,8 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import clsx from 'clsx'
-import {
-  Avatar,
-  Divider,
-  Fade as Trans,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  useMediaQuery,
-  useTheme
-} from '@material-ui/core'
+import { Avatar, ListItem, ListItemAvatar, ListItemText } from '@material-ui/core'
 import { CommentIcon, JobIcon, StoryIcon } from '@components/icons'
 import useStyles from './Item.styles'
 
@@ -30,61 +21,45 @@ const Icon = ({ item }) => {
   }
 }
 
-const Item = ({ item, divider, show, delay }) => {
+const Item = ({ item }) => {
   const classes = useStyles()
-  const history = useHistory()
-  const theme = useTheme()
-  const large = useMediaQuery(theme.breakpoints.up('sm'))
   const [elevate, setElevate] = useState(false)
 
   if (!item || !item.url) return null
 
   return (
-    <Trans in={show} timeout={delay} direction='up'>
-      <div>
-        <ListItem
-          button
-          classes={{ root: clsx(classes.item, elevate && classes.hover) }}
-          onClick={() => history.push(`/item/${item.id}`)}
-          onMouseEnter={() => setElevate(true)}
-          onMouseLeave={() => setElevate(false)}
-        >
-          <ListItemAvatar>
-            <Avatar>
-              <Icon item={item} />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText
-            primary={item.title.toLowerCase()}
-            secondary={new URL(item.url).hostname.toLowerCase()}
-            primaryTypographyProps={{
-              variant: large ? 'h5' : 'h6',
-              classes: { root: classes.title }
-            }}
-            secondaryTypographyProps={{
-              variant: large ? 'body1' : 'body2',
-              color: 'primary'
-            }}
-          />
-        </ListItem>
-
-        {divider ? <Divider component='li' variant='inset' /> : null}
-      </div>
-    </Trans>
+    <Link to={`/item/${item.id}`}>
+      <ListItem
+        button
+        classes={{ root: clsx(classes.item, elevate && classes.hover) }}
+        onMouseEnter={() => setElevate(true)}
+        onMouseLeave={() => setElevate(false)}
+      >
+        <ListItemAvatar>
+          <Avatar>
+            <Icon item={item} />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary={item.title.toLowerCase()}
+          secondary={new URL(item.url).hostname.toLowerCase()}
+          primaryTypographyProps={{
+            variant: 'h5',
+            color: 'textPrimary',
+            classes: { root: classes.title }
+          }}
+          secondaryTypographyProps={{
+            variant: 'body1',
+            color: 'primary'
+          }}
+        />
+      </ListItem>
+    </Link>
   )
 }
 
 Item.propTypes = {
-  item: PropTypes.object.isRequired,
-  divider: PropTypes.bool,
-  show: PropTypes.bool,
-  delay: PropTypes.number
-}
-
-Item.defaultProps = {
-  divider: false,
-  show: true,
-  delay: 0
+  item: PropTypes.object.isRequired
 }
 
 export default Item
