@@ -6,6 +6,7 @@ import { CssBaseline, ThemeProvider } from '@material-ui/core'
 import 'simplebar/dist/simplebar.min.css'
 import 'typeface-nunito'
 
+import { routes } from '@app'
 import theme from '@themes/dark'
 import store from '@store'
 import { Navbar, Snacks } from '@components'
@@ -18,14 +19,14 @@ const H4x0rNws = () => (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Snacks />
-      <BrowserRouter basename='/H4X0R.nws'>
+      <BrowserRouter basename={routes.BASENAME}>
         <Navbar>
           <Switch>
-            <Route path='/' exact component={Stories} />
-            <Route path='/jobs' component={Jobs} />
-            <Route path='/about' component={About} />
-            <Route path='/item/:id' component={Item} />
-            <Route path='/error' component={Error} />
+            <Route path={routes.STORIES} exact component={Stories} />
+            <Route path={routes.JOBS} component={Jobs} />
+            <Route path={routes.ITEM} component={Item} />
+            <Route path={routes.ABOUT} component={About} />
+            <Route path={routes.ERROR} component={Error} />
             <Route component={NotFound} />
           </Switch>
         </Navbar>

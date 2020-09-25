@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import { BottomNavigation, BottomNavigationAction } from '@material-ui/core'
+import { routes } from '@app'
 import { StoriesIcon, JobsIcon } from '@components/icons'
 import useStyles from './Tabs.styles'
 
@@ -23,8 +24,8 @@ const Tabs = ({ closeDrawer }) => {
 
   return (
     <BottomNavigation value={section} onChange={onChange} className={classes.root}>
-      <BottomNavigationAction label='stories' value='/' icon={<StoriesIcon />} />
-      <BottomNavigationAction label='jobs' value='/jobs' icon={<JobsIcon />} />
+      <BottomNavigationAction label='stories' value={routes.STORIES} icon={<StoriesIcon />} />
+      <BottomNavigationAction label='jobs' value={routes.JOBS} icon={<JobsIcon />} />
     </BottomNavigation>
   )
 }

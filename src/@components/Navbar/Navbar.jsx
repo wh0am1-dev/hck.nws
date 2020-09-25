@@ -39,7 +39,7 @@ const Navbar = ({ children }) => {
             H4X0R.nws{title && ` · ${title}`}
           </Typography>
           <Route
-            path={['/', '/jobs', '/item/:id']}
+            path={[routes.STORIES, routes.JOBS, routes.ITEM]}
             exact
             render={() => (
               <IconButton edge='end' color='inherit' onClick={() => window.location.reload()}>
@@ -80,7 +80,7 @@ const Navbar = ({ children }) => {
 
       <Route
         exact
-        path={['/', '/jobs']}
+        path={[routes.STORIES, routes.JOBS]}
         render={() => <Tabs closeDrawer={() => toggleDrawer(false)} />}
       />
     </main>

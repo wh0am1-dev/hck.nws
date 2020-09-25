@@ -13,7 +13,7 @@ import {
   Typography
 } from '@material-ui/core'
 import SimpleBar from 'simplebar-react'
-import { version } from '@app'
+import { version, routes } from '@app'
 import { InfoIcon, JobsIcon, StoriesIcon } from '@components/icons'
 import logo from '@svg/h4x0r.nws.svg'
 
@@ -32,32 +32,32 @@ const DrawerContent = ({ classes, history, location, toggleDrawer }) => {
         <nav onClick={() => toggleDrawer(false)}>
           <center>
             <ButtonBase className={classes.logoButton}>
-              <RouterLink to='/'>
+              <RouterLink to={routes.STORIES}>
                 <img src={logo} alt='logo' className={classes.logo} />
               </RouterLink>
             </ButtonBase>
           </center>
 
           <List>
-            <RouterLink to='/'>
+            <RouterLink to={routes.STORIES}>
               <ListItem button key='stories'>
                 <ListItemIcon>
-                  <StoriesIcon color={activeColor('/', location, true)} />
+                  <StoriesIcon color={activeColor(routes.STORIES, location, true)} />
                 </ListItemIcon>
                 <ListItemText
                   primary='stories'
-                  primaryTypographyProps={{ color: activeColor('/', location) }}
+                  primaryTypographyProps={{ color: activeColor(routes.STORIES, location) }}
                 />
               </ListItem>
             </RouterLink>
-            <RouterLink to='/jobs'>
+            <RouterLink to={routes.JOBS}>
               <ListItem button key='jobs'>
                 <ListItemIcon>
-                  <JobsIcon color={activeColor('/jobs', location, true)} />
+                  <JobsIcon color={activeColor(routes.JOBS, location, true)} />
                 </ListItemIcon>
                 <ListItemText
                   primary='jobs'
-                  primaryTypographyProps={{ color: activeColor('/jobs', location) }}
+                  primaryTypographyProps={{ color: activeColor(routes.JOBS, location) }}
                 />
               </ListItem>
             </RouterLink>
@@ -66,14 +66,14 @@ const DrawerContent = ({ classes, history, location, toggleDrawer }) => {
           <Divider />
 
           <List>
-            <RouterLink to='/about'>
+            <RouterLink to={routes.ABOUT}>
               <ListItem button key='about'>
                 <ListItemIcon>
-                  <InfoIcon color={activeColor('/about', location, true)} />
+                  <InfoIcon color={activeColor(routes.ABOUT, location, true)} />
                 </ListItemIcon>
                 <ListItemText
                   primary='about'
-                  primaryTypographyProps={{ color: activeColor('/about', location) }}
+                  primaryTypographyProps={{ color: activeColor(routes.ABOUT, location) }}
                 />
               </ListItem>
             </RouterLink>
