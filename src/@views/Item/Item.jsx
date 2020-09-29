@@ -92,7 +92,7 @@ const Item = () => {
           <Grid item xs={12} container justify='center'>
             <Typography variant='subtitle2' align='center'>
               <Link href={item.url} target='_blank'>
-                {item.url}
+                {item.url || ''}
               </Link>
             </Typography>
           </Grid>
