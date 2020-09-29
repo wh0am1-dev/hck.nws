@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(2, 0)
   },
   content: {
-    overflowX: 'auto'
+    overflowX: 'hidden'
   },
   more: {
     textAlign: 'center'
