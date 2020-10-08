@@ -55,7 +55,13 @@ const Item = () => {
 
   return (
     <Container maxWidth='sm' classes={{ root: classes.container }}>
-      <Helmet title={item.title} />
+      <Helmet>
+        <title>{item?.title}</title>
+        <meta property='og:title' content={`H4X0R.nws · ${item?.title?.toLowerCase()}`} />
+        <meta property='og:type' content='article' />
+        <meta property='og:url' content={`https://wh0am1.dev/H4X0R.nws/item/${id}`} />
+        <meta property='og:image' content={og?.image} />
+      </Helmet>
 
       {loading ? (
         <Loading />
