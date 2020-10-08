@@ -9,7 +9,9 @@ const Error = () => {
 
   return (
     <Container maxWidth='sm' classes={{ root: classes.container }}>
-      <Helmet title='error' />
+      <Helmet>
+        <title>error</title>
+      </Helmet>
       <section className={classes.center}>
         <Grid container spacing={0} justify='center' alignItems='center'>
           <Grid item xs={12}>

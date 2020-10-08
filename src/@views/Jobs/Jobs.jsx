@@ -19,7 +19,9 @@ const Jobs = () => {
 
   return (
     <Container maxWidth='sm' classes={{ root: classes.container }}>
-      <Helmet title='jobs' />
+      <Helmet>
+        <title>jobs</title>
+      </Helmet>
       {jobs.fetching ? <Loading /> : <ItemList items={jobs.items} />}
     </Container>
   )

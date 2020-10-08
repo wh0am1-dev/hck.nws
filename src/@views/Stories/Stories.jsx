@@ -19,7 +19,9 @@ const Stories = () => {
 
   return (
     <Container maxWidth='sm' classes={{ root: classes.container }}>
-      <Helmet title='stories' />
+      <Helmet>
+        <title>stories</title>
+      </Helmet>
       {stories.fetching ? <Loading /> : <ItemList items={stories.items} />}
     </Container>
   )

@@ -9,7 +9,9 @@ const About = () => {
 
   return (
     <Container maxWidth='sm' className={classes.container}>
-      <Helmet title='about' />
+      <Helmet>
+        <title>about</title>
+      </Helmet>
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <Box className={classes.logoBox}>
