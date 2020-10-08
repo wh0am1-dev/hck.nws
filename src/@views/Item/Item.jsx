@@ -33,7 +33,7 @@ const Item = () => {
   }, [id, dispatch])
 
   useEffect(() => {
-    if (item && item.url) {
+    if (item?.url) {
       api.getOG({
         url: item.url,
         done: og => {
@@ -46,10 +46,8 @@ const Item = () => {
   }, [item, setOG, setLoading])
 
   useEffect(() => {
-    if (og) {
-      if (og.title || og.description || og.image || og.logo) {
-        setShowOG(true)
-      }
+    if (og?.title || og?.description || og?.image || og?.logo) {
+      setShowOG(true)
     }
   }, [og, setShowOG])
 
