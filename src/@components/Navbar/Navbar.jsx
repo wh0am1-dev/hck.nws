@@ -78,11 +78,13 @@ const Navbar = ({ children }) => {
         <SimpleBar className={classes.scroll}>{children}</SimpleBar>
       </section>
 
-      <Route
-        exact
-        path={[routes.STORIES, routes.JOBS]}
-        render={() => <Tabs closeDrawer={() => toggleDrawer(false)} />}
-      />
+      <Hidden smUp implementation='css'>
+        <Route
+          exact
+          path={[routes.STORIES, routes.JOBS]}
+          render={() => <Tabs closeDrawer={() => toggleDrawer(false)} />}
+        />
+      </Hidden>
     </main>
   )
 }
