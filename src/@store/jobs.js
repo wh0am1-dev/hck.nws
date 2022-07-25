@@ -1,5 +1,5 @@
 import { createAction, createReducer } from '@reduxjs/toolkit'
-import { api } from '@app'
+import { getJobs } from './api'
 import { addSnack } from './app'
 
 const jobs = {
@@ -18,20 +18,22 @@ const fetchJobsPending = createAction('jobs:pending')
 const fetchJobsDone = createAction('jobs:done')
 const fetchJobsError = createAction('jobs:error')
 
-export const fetchJobs = (force = false) => (dispatch, getState) => {
-  const { jobs } = getState()
+export const fetchJobs =
+  (force = false) =>
+  (dispatch, getState) => {
+    const { jobs } = getState()
 
-  if (force || !jobs.items.length) {
-    dispatch(fetchJobsPending())
-    api.getJobs({
-      done: jobs => dispatch(fetchJobsDone(jobs)),
-      error: error => {
-        dispatch(fetchJobsError())
-        dispatch(addSnack({ error }))
-      }
-    })
+    if (force || !jobs.items.length) {
+      dispatch(fetchJobsPending())
+      getJobs({
+        done: jobs => dispatch(fetchJobsDone(jobs)),
+        error: error => {
+          dispatch(fetchJobsError())
+          dispatch(addSnack({ error }))
+        }
+      })
+    }
   }
-}
 
 // ==== reducer ====
 

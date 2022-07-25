@@ -1,6 +1,6 @@
 import logger from 'redux-logger'
 import { useSelector as useReduxSelector, shallowEqual } from 'react-redux'
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 import app from './app'
 import stories from './stories'
 import jobs from './jobs'
@@ -11,11 +11,12 @@ const config = {
     stories,
     jobs
   },
-  middleware: [...getDefaultMiddleware()]
+  middleware: getDefaultMiddleware => getDefaultMiddleware()
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  config.middleware.push(logger)
+  config.middleware = getDefaultMiddleware =>
+    getDefaultMiddleware().concat(logger)
 }
 
 const store = configureStore(config)

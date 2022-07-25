@@ -1,5 +1,5 @@
 import { createAction, createReducer } from '@reduxjs/toolkit'
-import { api } from '@app'
+import { getStories } from './api'
 import { addSnack } from './app'
 
 const stories = {
@@ -21,21 +21,23 @@ const fetchStoriesPending = createAction('stories:pending')
 const fetchStoriesDone = createAction('stories:done')
 const fetchStoriesError = createAction('stories:error')
 
-export const fetchStories = (force = false) => (dispatch, getState) => {
-  const { stories } = getState()
+export const fetchStories =
+  (force = false) =>
+  (dispatch, getState) => {
+    const { stories } = getState()
 
-  if (force || !stories.items.length) {
-    dispatch(fetchStoriesPending())
-    api.getStories({
-      max: stories.max,
-      done: stories => dispatch(fetchStoriesDone(stories)),
-      error: error => {
-        dispatch(fetchStoriesError())
-        dispatch(addSnack({ error }))
-      }
-    })
+    if (force || !stories.items.length) {
+      dispatch(fetchStoriesPending())
+      getStories({
+        max: stories.max,
+        done: stories => dispatch(fetchStoriesDone(stories)),
+        error: error => {
+          dispatch(fetchStoriesError())
+          dispatch(addSnack({ error }))
+        }
+      })
+    }
   }
-}
 
 // ==== reducer ====
 
