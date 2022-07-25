@@ -1,12 +1,12 @@
 <div align="center">
 
-<a href="https://wh0am1.dev/H4X0R.nws"><img src="https://raw.githubusercontent.com/Neko250/H4X0R.nws/master/public/img/h4x0r.nws.512.png" width="25%"></a>
+<a href="https://wh0am1.dev/H4X0R.nws"><img src="https://raw.githubusercontent.com/Neko250/H4X0R.nws/master/src/img/h4x0r.nws.512.png" width="25%"></a>
 
 # H4X0R.nws
 
 [![Build Status](https://travis-ci.org/Neko250/H4X0R.nws.svg)](https://travis-ci.org/Neko250/H4X0R.nws)
 
-hacker news client progressive web application
+hacker news progressive web application
 
 <br>
 
