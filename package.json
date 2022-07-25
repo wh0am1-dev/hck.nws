@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel",
-    "build": "yarn clean && parcel build --no-cache",
+    "build": "parcel build --no-cache",
     "clean": "rm -r dist .parcel-cache",
     "inspect": "source-map-explorer 'build/static/js/*.js'"
   },
