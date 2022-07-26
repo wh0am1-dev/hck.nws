@@ -4,7 +4,7 @@
 
 # H4X0R.nws
 
-[![Build Status](https://travis-ci.org/Neko250/H4X0R.nws.svg)](https://travis-ci.org/Neko250/H4X0R.nws)
+![build status](https://img.shields.io/github/workflow/status/Neko250/H4X0R.nws/Build%20and%20Deploy)
 
 hacker news progressive web application
 
