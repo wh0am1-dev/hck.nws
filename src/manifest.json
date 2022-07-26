@@ -1,8 +1,10 @@
 {
+  "id": "/H4X0R.nws/",
   "short_name": "H4X0R.nws",
   "name": "H4X0R.nws",
   "description": "hacker news pwa",
   "start_url": ".",
+  "scope": ".",
   "display": "standalone",
   "theme_color": "#ff9800",
   "background_color": "#111",
