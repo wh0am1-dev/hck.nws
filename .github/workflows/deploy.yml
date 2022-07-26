@@ -2,7 +2,8 @@ name: Build and Deploy
 
 on:
   push:
-    tags: [ "master" ]
+    tags:
+      - '*'
   workflow_dispatch:
 
 permissions:
