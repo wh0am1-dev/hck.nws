@@ -1,6 +1,6 @@
 {
   "name": "h4x0r.nws",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "private": true,
   "license": "MIT",
   "homepage": "https://wh0am1.dev/H4X0R.nws",
@@ -11,14 +11,13 @@
   ],
   "targets": {
     "default": {
-      "publicUrl": "."
+      "publicUrl": "/H4X0R.nws/"
     }
   },
   "scripts": {
     "start": "parcel",
     "build": "parcel build --no-cache",
-    "clean": "rm -r dist .parcel-cache parcel-bundle-reports",
-    "inspect": "source-map-explorer 'build/static/js/*.js'"
+    "clean": "rm -r dist .parcel-cache parcel-bundle-reports"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.4",
