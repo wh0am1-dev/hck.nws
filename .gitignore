@@ -9,6 +9,7 @@
 # production
 .parcel-cache
 /dist
+/parcel-bundle-reports
 
 # misc
 TODO.md

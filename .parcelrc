@@ -7,5 +7,9 @@
     "jsx:*": [
       "..."
     ]
-  }
+  },
+  "reporters": [
+    "...",
+    "@parcel/reporter-bundle-analyzer"
+  ]
 }

@@ -1,20 +1,25 @@
 {
   "name": "h4x0r.nws",
-  "version": "4.0.0",
+  "version": "4.0.1",
+  "private": true,
+  "license": "MIT",
+  "homepage": "https://wh0am1.dev/H4X0R.nws",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "source": [
     "src/index.html",
     "src/404.html"
   ],
-  "homepage": "https://wh0am1.dev/H4X0R.nws",
-  "private": true,
-  "license": "MIT",
+  "targets": {
+    "default": {
+      "publicUrl": "."
+    }
+  },
   "scripts": {
     "start": "parcel",
     "build": "parcel build --no-cache",
-    "clean": "rm -r dist .parcel-cache",
+    "clean": "rm -r dist .parcel-cache parcel-bundle-reports",
     "inspect": "source-map-explorer 'build/static/js/*.js'"
   },
-  "browserslist": "> 0.5%, last 2 versions, not dead",
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
@@ -35,13 +40,13 @@
   },
   "devDependencies": {
     "@parcel/packager-raw-url": "2.6.2",
+    "@parcel/reporter-bundle-analyzer": "^2.6.2",
     "@parcel/transformer-svg-react": "^2.6.2",
     "@parcel/transformer-webmanifest": "2.6.2",
     "buffer": "^6.0.3",
     "parcel": "^2.6.2",
     "prettier": "^2.7.1",
     "process": "^0.11.10",
-    "redux-logger": "^3.0.6",
-    "source-map-explorer": "^2.5.2"
+    "redux-logger": "^3.0.6"
   }
 }
