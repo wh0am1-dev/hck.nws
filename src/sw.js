@@ -5,8 +5,8 @@ addEventListener('activate', e => e.waitUntil(activate()))
 addEventListener('fetch', e => e.respondWith(cacheFirst(e.request)))
 
 const install = async () => {
-  const cache = await caches.open(version)
-  await cache.addAll(manifest)
+  const appCache = await caches.open(version)
+  await appCache.addAll(manifest)
 }
 
 const activate = async () => {
@@ -15,10 +15,22 @@ const activate = async () => {
 }
 
 const cacheFirst = async request => {
-  const cached = await caches.match(request)
+  const appCache = await caches.open(version)
+  const cached = await appCache.match(request)
   if (cached) return cached
-  const response = await fetch(request)
-  const cache = await caches.open(version)
-  await cache.put(request, response.clone())
-  return response
+
+  const dataCache = await caches.open(`${version}:data`)
+  try {
+    const response = await fetch(request)
+    await dataCache.put(request, response.clone())
+    return response
+  } catch (error) {
+    const cachedData = await dataCache.match(request)
+    if (cachedData) return cachedData
+
+    return new Response('Network Error', {
+      status: 408,
+      headers: { 'Content-Type': 'text/plain' }
+    })
+  }
 }
