@@ -9,7 +9,7 @@ import {
 
 const OGCard = ({ url, title, description, image, logo }) => (
   <Card elevation={4}>
-    <CardActionArea onClick={() => window.open(url, '_blank')}>
+    <CardActionArea onClick={() => (document.location.href = url)}>
       {(image || logo) && <CardMedia component='img' src={image || logo} />}
       <CardContent>
         <Typography variant='h5' gutterBottom color='textPrimary'>

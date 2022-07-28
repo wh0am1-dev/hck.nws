@@ -73,7 +73,8 @@ const About = () => {
               label={`v${version}`}
               className={classes.version}
               onClick={() =>
-                window.open('https://github.com/Neko250/H4X0R.nws', '_blank ')
+                (document.location.href =
+                  'https://github.com/Neko250/H4X0R.nws')
               }
             />
           </Typography>

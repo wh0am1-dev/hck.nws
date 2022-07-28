@@ -61,10 +61,7 @@ const Item = () => {
           <Grid item xs={12}>
             <Typography variant='subtitle1' align='center'>
               posted by{' '}
-              <Link
-                href={`https://news.ycombinator.com/user?id=${item.by}`}
-                target='_blank'
-              >
+              <Link href={`https://news.ycombinator.com/user?id=${item.by}`}>
                 {item.by || ''}
               </Link>
             </Typography>
@@ -78,9 +75,7 @@ const Item = () => {
 
           <Grid item xs={12} container justifyContent='center'>
             <Typography variant='subtitle2' align='center' noWrap>
-              <Link href={item.url} target='_blank'>
-                {item.url || ''}
-              </Link>
+              <Link href={item.url}>{item.url || ''}</Link>
             </Typography>
           </Grid>
 
@@ -91,10 +86,7 @@ const Item = () => {
           )}
 
           <Grid item xs={12} container justifyContent='center'>
-            <Link
-              href={`https://news.ycombinator.com/item?id=${id}`}
-              target='_blank'
-            >
+            <Link href={`https://news.ycombinator.com/item?id=${id}`}>
               view on hn
             </Link>
           </Grid>
