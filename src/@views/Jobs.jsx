@@ -7,13 +7,20 @@ import { selectJobs, fetchJobs } from '../@store/jobs'
 import Error from '../@views/Error'
 import ItemList from '../@components/ItemList'
 import Loading from '../@components/Loading'
+import JobsSvg from 'jsx:../@svg/jobs.svg'
 
 const useStyles = makeStyles(theme => ({
   container: {
-    padding: theme.spacing(0),
+    padding: 0,
+    textAlign: 'center',
     [theme.breakpoints.up('md')]: {
       padding: theme.spacing(3, 0)
     }
+  },
+  hero: {
+    height: '30vh',
+    maxWidth: '100%',
+    margin: theme.spacing(2, 0)
   }
 }))
 
@@ -31,6 +38,7 @@ const Jobs = () => {
       <Helmet>
         <title>jobs</title>
       </Helmet>
+      <JobsSvg className={classes.hero} />
       {jobs.fetching ? <Loading /> : <ItemList items={jobs.items} />}
     </Container>
   )

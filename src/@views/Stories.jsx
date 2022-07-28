@@ -7,13 +7,20 @@ import { selectStories, fetchStories } from '../@store/stories'
 import Error from '../@views/Error'
 import ItemList from '../@components/ItemList'
 import Loading from '../@components/Loading'
+import StoriesSvg from 'jsx:../@svg/stories.svg'
 
 const useStyles = makeStyles(theme => ({
   container: {
-    padding: theme.spacing(0),
+    padding: 0,
+    textAlign: 'center',
     [theme.breakpoints.up('sm')]: {
       padding: theme.spacing(3, 0)
     }
+  },
+  hero: {
+    height: '30vh',
+    maxWidth: '100%',
+    margin: theme.spacing(2, 0)
   }
 }))
 
@@ -31,6 +38,7 @@ const Stories = () => {
       <Helmet>
         <title>stories</title>
       </Helmet>
+      <StoriesSvg className={classes.hero} />
       {stories.fetching ? <Loading /> : <ItemList items={stories.items} />}
     </Container>
   )

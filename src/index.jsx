@@ -42,11 +42,9 @@ createRoot(document.querySelector('#l33t')).render(
   </HelmetProvider>
 )
 
-if (process.env.NODE_ENV === 'production') {
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register(new URL('sw.js', import.meta.url), {
-      scope: '.',
-      type: 'module'
-    })
-  }
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register(new URL('sw.js', import.meta.url), {
+    scope: '.',
+    type: 'module'
+  })
 }

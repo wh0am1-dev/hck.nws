@@ -15,22 +15,7 @@ const activate = async () => {
 }
 
 const cacheFirst = async request => {
-  const appCache = await caches.open(version)
-  const cached = await appCache.match(request)
+  const cached = await caches.match(request)
   if (cached) return cached
-
-  const dataCache = await caches.open(`${version}:data`)
-  try {
-    const response = await fetch(request)
-    await dataCache.put(request, response.clone())
-    return response
-  } catch (error) {
-    const cachedData = await dataCache.match(request)
-    if (cachedData) return cachedData
-
-    return new Response('Network Error', {
-      status: 408,
-      headers: { 'Content-Type': 'text/plain' }
-    })
-  }
+  return await fetch(request)
 }

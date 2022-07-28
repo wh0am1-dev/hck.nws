@@ -4,7 +4,6 @@ import {
   Box,
   Container,
   Grid,
-  Link,
   Typography,
   Chip
 } from '@material-ui/core'
@@ -67,15 +66,15 @@ const About = () => {
           </Typography>
           <Typography align='center'>
             <Chip
-              label={`v${version}`}
               clickable
-              component='a'
-              href='https://github.com/Neko250/H4X0R.nws'
-              target='_blank'
               size='small'
               color='primary'
               variant='outlined'
+              label={`v${version}`}
               className={classes.version}
+              onClick={() =>
+                window.open('https://github.com/Neko250/H4X0R.nws', '_blank ')
+              }
             />
           </Typography>
         </Grid>

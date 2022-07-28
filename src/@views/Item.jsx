@@ -60,17 +60,12 @@ const Item = () => {
 
           <Grid item xs={12}>
             <Typography variant='subtitle1' align='center'>
-              <Link href={item.url} target='_blank'>
-                {item.url ? new URL(item.url).hostname.toLowerCase() : ''}
-              </Link>
-            </Typography>
-            <Typography variant='subtitle1' align='center'>
               posted by{' '}
               <Link
                 href={`https://news.ycombinator.com/user?id=${item.by}`}
                 target='_blank'
               >
-                {item.by?.toLowerCase() || ''}
+                {item.by || ''}
               </Link>
             </Typography>
           </Grid>
@@ -82,7 +77,7 @@ const Item = () => {
           )}
 
           <Grid item xs={12} container justifyContent='center'>
-            <Typography variant='subtitle2' align='center'>
+            <Typography variant='subtitle2' align='center' noWrap>
               <Link href={item.url} target='_blank'>
                 {item.url || ''}
               </Link>

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import clsx from 'clsx'
 import {
   makeStyles,
@@ -9,6 +9,7 @@ import {
   ListItemAvatar,
   ListItemText
 } from '@material-ui/core'
+import routes from '../@views/routes'
 import { CommentIcon, JobIcon, StoryIcon } from './icons'
 
 const useStyles = makeStyles(theme => ({
@@ -49,38 +50,38 @@ const Icon = ({ item }) => {
 
 const Item = ({ item }) => {
   const classes = useStyles()
+  const navigate = useNavigate()
   const [elevate, setElevate] = useState(false)
 
   if (!item || !item.url) return null
 
   return (
-    <Link to={`/item/${item.id}`} className={classes.link}>
-      <ListItem
-        button
-        classes={{ root: clsx(classes.item, elevate && classes.hover) }}
-        onMouseEnter={() => setElevate(true)}
-        onMouseLeave={() => setElevate(false)}
-      >
-        <ListItemAvatar>
-          <Avatar>
-            <Icon item={item} />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText
-          primary={item.title.toLowerCase()}
-          secondary={new URL(item.url).hostname.toLowerCase()}
-          primaryTypographyProps={{
-            variant: 'h5',
-            color: 'textPrimary',
-            classes: { root: classes.title }
-          }}
-          secondaryTypographyProps={{
-            variant: 'body1',
-            color: 'primary'
-          }}
-        />
-      </ListItem>
-    </Link>
+    <ListItem
+      button
+      classes={{ root: clsx(classes.item, elevate && classes.hover) }}
+      onMouseEnter={() => setElevate(true)}
+      onMouseLeave={() => setElevate(false)}
+      onClick={() => navigate(routes.ITEM.replace(':id', item.id))}
+    >
+      <ListItemAvatar>
+        <Avatar>
+          <Icon item={item} />
+        </Avatar>
+      </ListItemAvatar>
+      <ListItemText
+        primary={item.title.toLowerCase()}
+        secondary={new URL(item.url).hostname.toLowerCase()}
+        primaryTypographyProps={{
+          variant: 'h5',
+          color: 'textPrimary',
+          classes: { root: classes.title }
+        }}
+        secondaryTypographyProps={{
+          variant: 'body1',
+          color: 'primary'
+        }}
+      />
+    </ListItem>
   )
 }
 

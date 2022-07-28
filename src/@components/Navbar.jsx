@@ -36,7 +36,8 @@ const useStyles = makeStyles(theme => ({
     }
   },
   title: {
-    fontWeight: 800
+    fontWeight: 800,
+    cursor: 'pointer'
   },
   tabs: {
     width: '100%',
@@ -74,17 +75,16 @@ const Navbar = ({ children }) => {
     <main className={classes.root}>
       <AppBar position='fixed' elevation={8} color='primary'>
         <Toolbar>
-          <Link to={routes.STORIES}>
-            <Typography
-              noWrap
-              variant='h5'
-              component='div'
-              color='secondary'
-              classes={{ root: classes.title }}
-            >
-              H4X0R.nws
-            </Typography>
-          </Link>
+          <Typography
+            noWrap
+            variant='h5'
+            component='div'
+            color='secondary'
+            classes={{ root: classes.title }}
+            onClick={() => navigate(routes.STORIES)}
+          >
+            H4X0R.nws
+          </Typography>
 
           {title && (
             <Typography variant='h5' noWrap color='secondary'>
