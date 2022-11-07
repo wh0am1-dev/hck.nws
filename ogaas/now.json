@@ -1,0 +1,6 @@
+{
+  "name": "ogaas",
+  "version": 1,
+  "alias": "ogaas",
+  "regions": ["cdg1"]
+}
