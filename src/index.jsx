@@ -21,7 +21,7 @@ import './styles.css'
 createRoot(document.querySelector('#l33t')).render(
   <HelmetProvider>
     <Provider store={store}>
-      <Helmet defaultTitle='H4X0R.nws' titleTemplate='H4X0R.nws · %s' />
+      <Helmet defaultTitle='hck.nws' titleTemplate='hck.nws · %s' />
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Snacks />

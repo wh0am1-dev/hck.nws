@@ -1,5 +1,5 @@
 export default {
-  BASENAME: '/H4X0R.nws',
+  BASENAME: '/hck.nws',
   STORIES: '/',
   JOBS: '/jobs',
   ITEM: '/item/:id',

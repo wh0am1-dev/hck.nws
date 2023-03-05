@@ -83,7 +83,7 @@ const Navbar = ({ children }) => {
             classes={{ root: classes.title }}
             onClick={() => navigate(routes.STORIES)}
           >
-            H4X0R.nws
+            hck.nws
           </Typography>
 
           {title && (

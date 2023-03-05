@@ -1,10 +1,10 @@
 <div align="center">
 
-<a href="https://wh0am1.dev/H4X0R.nws"><img src="https://raw.githubusercontent.com/Neko250/H4X0R.nws/master/src/img/h4x0r.nws.512.png" width="25%"></a>
+<a href="https://carlos-aguilar.com/hck.nws"><img src="src/img/hck.nws.512.png" width="25%"></a>
 
-# H4X0R.nws
+# hck.nws
 
-![build status](https://img.shields.io/github/workflow/status/Neko250/H4X0R.nws/Build%20and%20Deploy)
+[![build status](https://img.shields.io/github/actions/workflow/status/wh0am1-dev/hck.nws/deploy.yml)](https://github.com/wh0am1-dev/hck.nws/actions/workflows/deploy.yml)
 
 hacker news progressive web application
 
@@ -28,6 +28,7 @@ inspect bundle
 
 ---
 
-![](https://img.shields.io/badge/neko250-333333.svg?style=for-the-badge) [![](https://img.shields.io/badge/present_tense_🎶🎷-333333.svg?style=for-the-badge)](https://youtu.be/6hgVihWjK2c)
+[![](https://img.shields.io/badge/by-carlos_aguilar-333333.svg)](https://carlos-aguilar.com)  
+[![](https://img.shields.io/badge/🎶🎷-present_tense-333333.svg)](https://youtu.be/6hgVihWjK2c)
 
 </div>

@@ -57,7 +57,7 @@ const About = () => {
         </Grid>
         <Grid item xs={12}>
           <Typography variant='h3' align='center' className={classes.title}>
-            H4X0R.nws
+            hck.nws
           </Typography>
         </Grid>
         <Grid item xs={12}>
@@ -74,7 +74,7 @@ const About = () => {
               className={classes.version}
               onClick={() =>
                 (document.location.href =
-                  'https://github.com/Neko250/H4X0R.nws')
+                  'https://github.com/wh0am1-dev/hck.nws')
               }
             />
           </Typography>

@@ -1,7 +1,7 @@
 {
-  "id": "/H4X0R.nws/",
-  "short_name": "H4X0R.nws",
-  "name": "H4X0R.nws",
+  "id": "/hck.nws/",
+  "short_name": "hck.nws",
+  "name": "hck.nws",
   "description": "hacker news pwa",
   "start_url": ".",
   "scope": ".",
@@ -10,12 +10,12 @@
   "background_color": "#111",
   "icons": [
     {
-      "src": "img/h4x0r.nws.512.png",
+      "src": "img/hck.nws.512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "img/h4x0r.nws.1440.png",
+      "src": "img/hck.nws.1440.png",
       "sizes": "1440x1440",
       "type": "image/png"
     }

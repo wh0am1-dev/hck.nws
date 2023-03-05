@@ -1,9 +1,9 @@
 {
-  "name": "h4x0r.nws",
+  "name": "hck.nws",
   "version": "4.1.1",
   "private": true,
   "license": "MIT",
-  "homepage": "https://wh0am1.dev/H4X0R.nws",
+  "homepage": "https://carlos-aguilar.com/hck.nws",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "source": [
     "src/index.html",
@@ -11,7 +11,7 @@
   ],
   "targets": {
     "default": {
-      "publicUrl": "/H4X0R.nws/"
+      "publicUrl": "/hck.nws/"
     }
   },
   "scripts": {
