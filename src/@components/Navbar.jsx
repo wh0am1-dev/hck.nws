@@ -37,15 +37,6 @@ const useStyles = makeStyles(theme => ({
     overflow: 'hidden'
   },
   toolbar: theme.mixins.toolbar,
-  scroll: {
-    maxHeight: 'calc(100vh - 56px - 56px)',
-    '@media (min-width:0px) and (orientation: landscape)': {
-      maxHeight: 'calc(100vh - 48px - 56px)'
-    },
-    '@media (min-width:600px)': {
-      maxHeight: 'calc(100vh - 64px - 56px)'
-    }
-  },
   tabs: {
     width: '100%',
     position: 'fixed',

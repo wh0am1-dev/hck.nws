@@ -14,10 +14,6 @@ import routes from '../@views/routes'
 import { CommentIcon, JobIcon, StoryIcon } from './icons'
 
 const useStyles = makeStyles(theme => ({
-  link: {
-    color: theme.palette.text.primary,
-    '&:active': {}
-  },
   item: {
     borderRadius: theme.shape.borderRadius,
     transition: theme.transitions.create('all', {
