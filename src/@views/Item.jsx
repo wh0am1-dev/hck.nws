@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useParams } from 'react-router-dom'
 import {
@@ -32,6 +33,8 @@ const Item = () => {
   const { id } = useParams()
   const classes = useStyles()
   const { loading, item, og } = useItem(id)
+
+  useEffect(() => window.scroll({ top: 0 }), [])
 
   if (loading === 'error') return <Error />
 

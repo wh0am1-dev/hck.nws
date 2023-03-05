@@ -14,7 +14,7 @@ import Jobs from './@views/Jobs'
 import About from './@views/About'
 import Error from './@views/Error'
 import NotFound from './@views/NotFound'
-import 'typeface-nunito'
+import '@fontsource/outfit'
 import './styles.css'
 
 createRoot(document.querySelector('#l33t')).render(

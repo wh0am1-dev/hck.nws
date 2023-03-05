@@ -195,6 +195,11 @@
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
   integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
 
+"@fontsource/outfit@^4.5.11":
+  version "4.5.11"
+  resolved "https://registry.yarnpkg.com/@fontsource/outfit/-/outfit-4.5.11.tgz#1831945715231ad83ef75d49fb0b7bbdb9d972dd"
+  integrity sha512-msPqJLLmSyWj/YtJknO75RjoTHIep6mDjnDO5IrZUJea31bO4s1QCuepG54LsmMXLKs+gp603nPM8/SUv5ZgSg==
+
 "@jridgewell/gen-mapping@^0.1.0":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.1.1.tgz#e5d2e450306a9491e3bd77e323e38d7aff315996"
@@ -2320,11 +2325,6 @@ type-fest@^0.20.2:
   version "0.20.2"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.20.2.tgz#1bf207f4b28f91583666cb5fbd327887301cd5f4"
   integrity sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ==
-
-typeface-nunito@^1.1.13:
-  version "1.1.13"
-  resolved "https://registry.yarnpkg.com/typeface-nunito/-/typeface-nunito-1.1.13.tgz#a57cbd7ff3e74ed99fe60d3361971c61747d130c"
-  integrity sha512-S7tN6pMnJapUxRDNa/RPXtcsxJC0KkBNPFOfGpHCkatVLm+6ltMedgeGtr1lPZsGFXGN890TZmE18bq2pdsmKw==
 
 update-browserslist-db@^1.0.4:
   version "1.0.5"

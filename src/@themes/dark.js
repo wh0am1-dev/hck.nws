@@ -31,7 +31,7 @@ const theme = responsiveFontSizes(
       }
     },
     typography: {
-      fontFamily: 'Nunito, Segoe UI, Helvetica Neue, Helvetica, Roboto, sans'
+      fontFamily: 'Outfit, Segoe UI, Helvetica Neue, Helvetica, Roboto, sans'
     },
     size: {
       drawer: 240

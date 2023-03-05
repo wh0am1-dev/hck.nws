@@ -53,6 +53,10 @@ code {
   content: none !important;
 }
 
+.outfit {
+  font-family: 'Outfit', 'Helvetica Neue', 'Segoe UI', sans-serif;
+}
+
 .nunito {
   font-family: 'Nunito', 'Helvetica Neue', 'Segoe UI', sans-serif;
 }
