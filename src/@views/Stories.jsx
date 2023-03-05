@@ -6,7 +6,6 @@ import { useSelector } from '../@store'
 import { selectStories, fetchStories } from '../@store/stories'
 import Error from '../@views/Error'
 import ItemList from '../@components/ItemList'
-import Loading from '../@components/Loading'
 import StoriesSvg from 'jsx:../@svg/stories.svg'
 
 const useStyles = makeStyles(theme => ({

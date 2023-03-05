@@ -6,7 +6,6 @@ import { useSelector } from '../@store'
 import { selectJobs, fetchJobs } from '../@store/jobs'
 import Error from '../@views/Error'
 import ItemList from '../@components/ItemList'
-import Loading from '../@components/Loading'
 import JobsSvg from 'jsx:../@svg/jobs.svg'
 
 const useStyles = makeStyles(theme => ({

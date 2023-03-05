@@ -27,6 +27,7 @@ export const fetchStories =
     const { stories } = getState()
 
     if (force || !stories.items.length) {
+      window.scroll({ top: 0 })
       dispatch(fetchStoriesPending())
       getStories({
         max: stories.max,

@@ -1,5 +1,5 @@
 export default {
-  BASENAME: '/hck.nws',
+  BASENAME: process.env.NODE_ENV !== 'production' ? '/' : '/hck.nws',
   STORIES: '/',
   JOBS: '/jobs',
   ITEM: '/item/:id',

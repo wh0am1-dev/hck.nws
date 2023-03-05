@@ -24,6 +24,7 @@ export const fetchJobs =
     const { jobs } = getState()
 
     if (force || !jobs.items.length) {
+      window.scroll({ top: 0 })
       dispatch(fetchJobsPending())
       getJobs({
         done: jobs => dispatch(fetchJobsDone(jobs)),
