@@ -7,10 +7,12 @@ export const useItem = id => {
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(false)
   const [item, setItem] = useState({})
-  const [og, setOG] = useState()
+  const [og, setOG] = useState(undefined)
 
   useEffect(() => {
     setLoading(true)
+    setItem({})
+    setOG(undefined)
     getItem({
       id,
       done: item => {
@@ -19,11 +21,11 @@ export const useItem = id => {
         if (item?.url) {
           getOG({
             url: item.url,
-            done: og => {
-              setOG(og)
-              console.log(og)
-            },
-            error: () => setLoading(false)
+            done: og => setOG(og),
+            error: () => {
+              setOG({ title: item.title })
+              setLoading(false)
+            }
           })
         }
       },

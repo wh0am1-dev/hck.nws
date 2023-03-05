@@ -1,4 +1,4 @@
-import { useRef, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useNavigate, useLocation, Routes, Route } from 'react-router-dom'
 import {
   makeStyles,
@@ -9,7 +9,6 @@ import {
   BottomNavigation,
   BottomNavigationAction
 } from '@material-ui/core'
-import SimpleBar from 'simplebar-react'
 import routes from '../@views/routes'
 import { RefreshIcon, InfoIcon, StoriesIcon, JobsIcon } from './icons'
 
@@ -62,7 +61,6 @@ const Navbar = ({ children }) => {
   const classes = useStyles()
   const location = useLocation()
   const navigate = useNavigate()
-  const scroll = useRef(0)
 
   const title = useMemo(
     () =>
@@ -129,7 +127,8 @@ const Navbar = ({ children }) => {
 
       <section className={classes.content}>
         <div className={classes.toolbar} />
-        <SimpleBar className={classes.scroll}>{children}</SimpleBar>
+        {children}
+        <div className={classes.toolbar} />
       </section>
 
       <BottomNavigation

@@ -27,19 +27,19 @@ const useStyles = makeStyles(theme => ({
 const Jobs = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
-  const jobs = useSelector(selectJobs)
+  const { fetching, items } = useSelector(selectJobs)
 
   useEffect(() => dispatch(fetchJobs()), [dispatch])
 
-  if (jobs.fetching === 'error') return <Error />
+  if (fetching === 'error') return <Error />
 
   return (
-    <Container maxWidth='sm' classes={classes.container}>
+    <Container maxWidth='sm' className={classes.container}>
       <Helmet>
         <title>jobs</title>
       </Helmet>
       <JobsSvg className={classes.hero} />
-      {jobs.fetching ? <Loading /> : <ItemList items={jobs.items} />}
+      <ItemList fetching={fetching} items={items} />
     </Container>
   )
 }

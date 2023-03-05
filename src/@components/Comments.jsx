@@ -57,7 +57,7 @@ const Comments = ({ list }) => {
                   <TimelineDot
                     variant='outlined'
                     color='primary'
-                    classes={{ root: classes.dot }}
+                    className={classes.dot}
                   />
                   <TimelineConnector />
                 </TimelineSeparator>

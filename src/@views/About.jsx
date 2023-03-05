@@ -13,7 +13,7 @@ import { version } from '../../package.json'
 
 const useStyles = makeStyles(theme => ({
   container: {
-    marginTop: theme.spacing(4),
+    marginTop: '10vh',
     padding: theme.spacing(2)
   },
   logoBox: {
@@ -36,7 +36,6 @@ const useStyles = makeStyles(theme => ({
   title: {
     fontWeight: 800
   },
-  toolbar: theme.mixins.toolbar,
   version: {
     fontWeight: 600
   }
@@ -75,6 +74,7 @@ const About = () => {
                 clickable
                 size='small'
                 color='primary'
+                component='span'
                 variant='outlined'
                 label={`v${version}`}
                 className={classes.version}

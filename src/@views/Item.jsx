@@ -11,7 +11,6 @@ import { Skeleton } from '@material-ui/lab'
 import Error from '../@views/Error'
 import useItem from '../@hooks/useItem'
 import Comments from '../@components/Comments'
-import Loading from '../@components/Loading'
 import OGCard from '../@components/OGCard'
 
 const useStyles = makeStyles(theme => ({
@@ -23,6 +22,9 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     fontWeight: 800
+  },
+  skeleton: {
+    margin: 'auto'
   }
 }))
 
@@ -39,49 +41,73 @@ const Item = () => {
         <title>{item?.title}</title>
         <meta
           property='og:title'
-          content={`hck.nws · ${item?.title?.toLowerCase()}`}
+          content={`hck.nws · ${item?.title?.toLowerCase() || 'item'}`}
         />
         <meta property='og:type' content='article' />
         <meta
           property='og:url'
           content={`https://carlos-aguilar.com/hck.nws/item/${id}`}
         />
-        <meta property='og:image' content={og?.image} />
+        <meta
+          property='og:image'
+          content={og?.image || 'img/hck.nws.1440.png'}
+        />
       </Helmet>
 
-      {/* {loading ? (
-        <Loading />
-      ) : ( */}
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <Typography variant='h3' align='center' className={classes.title}>
             {item.title?.toLowerCase() || (
               <>
-                <Skeleton variant='text' />
-                <Skeleton variant='text' />
+                <Skeleton
+                  variant='text'
+                  width='80%'
+                  className={classes.skeleton}
+                />
+                <Skeleton
+                  variant='text'
+                  width='50%'
+                  className={classes.skeleton}
+                />
               </>
             )}
           </Typography>
         </Grid>
 
-        {item.by && (
-          <Grid item xs={12}>
-            <Typography variant='subtitle1' align='center'>
-              posted by{' '}
-              <Link href={`https://news.ycombinator.com/user?id=${item.by}`}>
-                {item.by || ''}
-              </Link>
-            </Typography>
-          </Grid>
-        )}
-
         <Grid item xs={12}>
-          <OGCard {...og} item={item} og={og} />
+          <Typography variant='subtitle1' align='center'>
+            {item.by ? (
+              <>
+                posted by{' '}
+                <Link href={`https://news.ycombinator.com/user?id=${item.by}`}>
+                  {item.by || ''}
+                </Link>
+              </>
+            ) : (
+              <Skeleton
+                variant='text'
+                width='30%'
+                className={classes.skeleton}
+              />
+            )}
+          </Typography>
         </Grid>
 
-        <Grid item xs={12} container justifyContent='center'>
+        <Grid item xs={12}>
+          <OGCard item={item} og={og} />
+        </Grid>
+
+        <Grid item xs={12}>
           <Typography variant='subtitle2' align='center' noWrap>
-            <Link href={item.url}>{item.url || ''}</Link>
+            {item.url ? (
+              <Link href={item.url}>{item.url}</Link>
+            ) : (
+              <Skeleton
+                variant='text'
+                width='50%'
+                className={classes.skeleton}
+              />
+            )}
           </Typography>
         </Grid>
 
@@ -97,7 +123,6 @@ const Item = () => {
           </Link>
         </Grid>
       </Grid>
-      {/* )} */}
     </Container>
   )
 }

@@ -14,7 +14,6 @@ import Jobs from './@views/Jobs'
 import About from './@views/About'
 import Error from './@views/Error'
 import NotFound from './@views/NotFound'
-import 'simplebar/dist/simplebar.min.css'
 import 'typeface-nunito'
 import './styles.css'
 

@@ -37,16 +37,17 @@ export const fetchJobs =
 
 // ==== reducer ====
 
-export default createReducer(jobs, {
-  [fetchJobsPending]: jobs => {
-    jobs.fetching = true
-    jobs.items = []
-  },
-  [fetchJobsDone]: (jobs, { payload: items }) => {
-    jobs.fetching = false
-    jobs.items = items
-  },
-  [fetchJobsError]: jobs => {
-    jobs.fetching = 'error'
-  }
+export default createReducer(jobs, builder => {
+  builder
+    .addCase(fetchJobsPending, jobs => {
+      jobs.fetching = true
+      jobs.items = []
+    })
+    .addCase(fetchJobsDone, (jobs, { payload: items }) => {
+      jobs.fetching = false
+      jobs.items = items
+    })
+    .addCase(fetchJobsError, jobs => {
+      jobs.fetching = 'error'
+    })
 })

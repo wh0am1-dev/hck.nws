@@ -27,19 +27,19 @@ const useStyles = makeStyles(theme => ({
 const Stories = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
-  const stories = useSelector(selectStories)
+  const { fetching, items } = useSelector(selectStories)
 
   useEffect(() => dispatch(fetchStories()), [dispatch])
 
-  if (stories.fetching === 'error') return <Error />
+  if (fetching === 'error') return <Error />
 
   return (
-    <Container maxWidth='sm' classes={classes.container}>
+    <Container maxWidth='sm' className={classes.container}>
       <Helmet>
         <title>stories</title>
       </Helmet>
       <StoriesSvg className={classes.hero} />
-      {stories.fetching ? <Loading /> : <ItemList items={stories.items} />}
+      <ItemList fetching={fetching} items={items} />
     </Container>
   )
 }

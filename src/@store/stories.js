@@ -3,7 +3,7 @@ import { getStories } from './api'
 import { addSnack } from './app'
 
 const stories = {
-  max: 50,
+  max: 64,
   items: [],
   fetching: false,
   error: false
@@ -41,19 +41,20 @@ export const fetchStories =
 
 // ==== reducer ====
 
-export default createReducer(stories, {
-  [maxStories]: (stories, { payload: max }) => {
-    stories.max = max
-  },
-  [fetchStoriesPending]: stories => {
-    stories.fetching = true
-    stories.items = []
-  },
-  [fetchStoriesDone]: (stories, { payload: items }) => {
-    stories.fetching = false
-    stories.items = items
-  },
-  [fetchStoriesError]: stories => {
-    stories.fetching = 'error'
-  }
+export default createReducer(stories, builder => {
+  builder
+    .addCase(maxStories, (stories, { payload: max }) => {
+      stories.max = max
+    })
+    .addCase(fetchStoriesPending, stories => {
+      stories.fetching = true
+      stories.items = []
+    })
+    .addCase(fetchStoriesDone, (stories, { payload: items }) => {
+      stories.fetching = false
+      stories.items = items
+    })
+    .addCase(fetchStoriesError, stories => {
+      stories.fetching = 'error'
+    })
 })

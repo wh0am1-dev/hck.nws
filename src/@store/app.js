@@ -12,8 +12,8 @@ export const addSnack = createAction('app:snack')
 
 // ==== reducer ====
 
-export default createReducer(app, {
-  [addSnack]: (app, { payload: snack }) => {
+export default createReducer(app, builder => {
+  builder.addCase(addSnack, (app, { payload: snack }) => {
     if (snack?.msg) app.snack = { msg: snack.msg }
     else if (snack?.info) app.snack = { msg: snack.info, variant: 'info' }
     else if (snack?.success)
@@ -28,5 +28,5 @@ export default createReducer(app, {
     } else if (snack?.error) {
       app.snack = { msg: snack.error, variant: 'error' }
     }
-  }
+  })
 })

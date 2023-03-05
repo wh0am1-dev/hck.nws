@@ -22,7 +22,7 @@ const Error = () => {
   const classes = useStyles()
 
   return (
-    <Container maxWidth='sm' classes={classes.container}>
+    <Container maxWidth='sm' className={classes.container}>
       <Helmet>
         <title>error</title>
       </Helmet>
