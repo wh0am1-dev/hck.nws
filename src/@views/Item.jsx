@@ -7,6 +7,7 @@ import {
   Link,
   Typography
 } from '@material-ui/core'
+import { Skeleton } from '@material-ui/lab'
 import Error from '../@views/Error'
 import useItem from '../@hooks/useItem'
 import Comments from '../@components/Comments'
@@ -33,7 +34,7 @@ const Item = () => {
   if (loading === 'error') return <Error />
 
   return (
-    <Container maxWidth='sm' classes={{ root: classes.container }}>
+    <Container maxWidth='sm' className={classes.container}>
       <Helmet>
         <title>{item?.title}</title>
         <meta
@@ -48,16 +49,22 @@ const Item = () => {
         <meta property='og:image' content={og?.image} />
       </Helmet>
 
-      {loading ? (
+      {/* {loading ? (
         <Loading />
-      ) : (
-        <Grid container spacing={4}>
-          <Grid item xs={12}>
-            <Typography variant='h3' align='center' className={classes.title}>
-              {item.title?.toLowerCase()}
-            </Typography>
-          </Grid>
+      ) : ( */}
+      <Grid container spacing={4}>
+        <Grid item xs={12}>
+          <Typography variant='h3' align='center' className={classes.title}>
+            {item.title?.toLowerCase() || (
+              <>
+                <Skeleton variant='text' />
+                <Skeleton variant='text' />
+              </>
+            )}
+          </Typography>
+        </Grid>
 
+        {item.by && (
           <Grid item xs={12}>
             <Typography variant='subtitle1' align='center'>
               posted by{' '}
@@ -66,32 +73,31 @@ const Item = () => {
               </Link>
             </Typography>
           </Grid>
+        )}
 
-          {(og?.title || og?.description || og?.image || og?.logo) && (
-            <Grid item xs={12}>
-              <OGCard {...og} />
-            </Grid>
-          )}
-
-          <Grid item xs={12} container justifyContent='center'>
-            <Typography variant='subtitle2' align='center' noWrap>
-              <Link href={item.url}>{item.url || ''}</Link>
-            </Typography>
-          </Grid>
-
-          {item.kids?.length > 0 && (
-            <Grid item xs={12}>
-              <Comments list={item.kids} />
-            </Grid>
-          )}
-
-          <Grid item xs={12} container justifyContent='center'>
-            <Link href={`https://news.ycombinator.com/item?id=${id}`}>
-              view on hn
-            </Link>
-          </Grid>
+        <Grid item xs={12}>
+          <OGCard {...og} item={item} og={og} />
         </Grid>
-      )}
+
+        <Grid item xs={12} container justifyContent='center'>
+          <Typography variant='subtitle2' align='center' noWrap>
+            <Link href={item.url}>{item.url || ''}</Link>
+          </Typography>
+        </Grid>
+
+        {item.kids?.length > 0 && (
+          <Grid item xs={12}>
+            <Comments list={item.kids} />
+          </Grid>
+        )}
+
+        <Grid item xs={12} container justifyContent='center'>
+          <Link href={`https://news.ycombinator.com/item?id=${id}`}>
+            view on hn
+          </Link>
+        </Grid>
+      </Grid>
+      {/* )} */}
     </Container>
   )
 }

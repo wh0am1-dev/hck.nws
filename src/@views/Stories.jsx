@@ -34,7 +34,7 @@ const Stories = () => {
   if (stories.fetching === 'error') return <Error />
 
   return (
-    <Container maxWidth='sm' classes={{ root: classes.container }}>
+    <Container maxWidth='sm' classes={classes.container}>
       <Helmet>
         <title>stories</title>
       </Helmet>

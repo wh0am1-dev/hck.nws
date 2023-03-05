@@ -58,7 +58,7 @@ const Item = ({ item }) => {
   return (
     <ListItem
       button
-      classes={{ root: clsx(classes.item, elevate && classes.hover) }}
+      classes={clsx(classes.item, elevate && classes.hover)}
       onMouseEnter={() => setElevate(true)}
       onMouseLeave={() => setElevate(false)}
       onClick={() => navigate(routes.ITEM.replace(':id', item.id))}

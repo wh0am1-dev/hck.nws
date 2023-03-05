@@ -6,17 +6,29 @@ import {
   CardContent,
   Typography
 } from '@material-ui/core'
+import { Skeleton } from '@material-ui/lab'
 
-const OGCard = ({ url, title, description, image, logo }) => (
+const OGCard = ({ item, og }) => (
   <Card elevation={4}>
-    <CardActionArea onClick={() => (document.location.href = url)}>
-      {(image || logo) && <CardMedia component='img' src={image || logo} />}
+    <CardActionArea href={og?.url || item.url}>
+      {og?.image || og?.logo ? (
+        <CardMedia component='img' src={og?.image || og?.logo} />
+      ) : (
+        <Skeleton variant='rect' width='100%' height={268} />
+      )}
       <CardContent>
         <Typography variant='h5' gutterBottom color='textPrimary'>
-          {title}
+          {og?.title || <Skeleton variant='text' />}
         </Typography>
         <Typography variant='body1' gutterBottom color='textPrimary'>
-          <span dangerouslySetInnerHTML={{ __html: description }} />
+          {(og?.description && (
+            <span dangerouslySetInnerHTML={{ __html: og?.description }} />
+          )) || (
+            <>
+              <Skeleton variant='text' />
+              <Skeleton variant='text' />
+            </>
+          )}
         </Typography>
       </CardContent>
     </CardActionArea>

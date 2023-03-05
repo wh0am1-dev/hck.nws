@@ -7,7 +7,7 @@ export const useItem = id => {
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(false)
   const [item, setItem] = useState({})
-  const [og, setOG] = useState(null)
+  const [og, setOG] = useState()
 
   useEffect(() => {
     setLoading(true)
@@ -15,12 +15,13 @@ export const useItem = id => {
       id,
       done: item => {
         setItem(item)
+        setLoading(false)
         if (item?.url) {
           getOG({
             url: item.url,
             done: og => {
               setOG(og)
-              setLoading(false)
+              console.log(og)
             },
             error: () => setLoading(false)
           })

@@ -15,6 +15,7 @@ const config = {
 }
 
 if (process.env.NODE_ENV !== 'production') {
+  config.devTools = true
   config.middleware = getDefaultMiddleware =>
     getDefaultMiddleware().concat(logger)
 }

@@ -5,7 +5,8 @@ import {
   Container,
   Grid,
   Typography,
-  Chip
+  Chip,
+  Link
 } from '@material-ui/core'
 import LogoSvg from 'jsx:../@svg/logo.svg'
 import { version } from '../../package.json'
@@ -65,18 +66,20 @@ const About = () => {
             hacker news pwa
           </Typography>
           <Typography align='center'>
-            <Chip
-              clickable
-              size='small'
-              color='primary'
-              variant='outlined'
-              label={`v${version}`}
-              className={classes.version}
-              onClick={() =>
-                (document.location.href =
-                  'https://github.com/wh0am1-dev/hck.nws')
-              }
-            />
+            <Link
+              href='https://github.com/wh0am1-dev/hck.nws'
+              target='_blank'
+              underline='none'
+            >
+              <Chip
+                clickable
+                size='small'
+                color='primary'
+                variant='outlined'
+                label={`v${version}`}
+                className={classes.version}
+              />
+            </Link>
           </Typography>
         </Grid>
       </Grid>

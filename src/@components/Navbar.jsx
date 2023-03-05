@@ -1,5 +1,5 @@
-import { useMemo } from 'react'
-import { useNavigate, useLocation, Link, Routes, Route } from 'react-router-dom'
+import { useRef, useMemo } from 'react'
+import { useNavigate, useLocation, Routes, Route } from 'react-router-dom'
 import {
   makeStyles,
   AppBar,
@@ -14,18 +14,30 @@ import routes from '../@views/routes'
 import { RefreshIcon, InfoIcon, StoriesIcon, JobsIcon } from './icons'
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex'
+  appbar: {
+    backgroundColor: theme.palette.background.default,
+    borderBottom: `2px solid ${theme.palette.primary.main}`
   },
-  toolbar: theme.mixins.toolbar,
+  title: {
+    fontWeight: 800,
+    cursor: 'pointer',
+    color: theme.palette.text.primary
+  },
+  path: {
+    color: theme.palette.text.primary
+  },
   grow: {
     flexGrow: 1
+  },
+  icon: {
+    color: theme.palette.text.primary
   },
   content: {
     position: 'relative',
     flexGrow: 1,
     overflow: 'hidden'
   },
+  toolbar: theme.mixins.toolbar,
   scroll: {
     maxHeight: 'calc(100vh - 56px - 56px)',
     '@media (min-width:0px) and (orientation: landscape)': {
@@ -35,15 +47,12 @@ const useStyles = makeStyles(theme => ({
       maxHeight: 'calc(100vh - 64px - 56px)'
     }
   },
-  title: {
-    fontWeight: 800,
-    cursor: 'pointer'
-  },
   tabs: {
     width: '100%',
     position: 'fixed',
     bottom: 0,
     left: 0,
+    backgroundColor: theme.palette.background.default,
     boxShadow:
       '0px -7px 8px -4px rgba(0,0,0,0.2), 0px -12px 17px 2px rgba(0,0,0,0.14), 0px -5px 22px 4px rgba(0,0,0,0.12)'
   }
@@ -53,6 +62,7 @@ const Navbar = ({ children }) => {
   const classes = useStyles()
   const location = useLocation()
   const navigate = useNavigate()
+  const scroll = useRef(0)
 
   const title = useMemo(
     () =>
@@ -64,7 +74,10 @@ const Navbar = ({ children }) => {
 
   const reload = useMemo(
     () => (
-      <IconButton color='inherit' onClick={() => window.location.reload()}>
+      <IconButton
+        className={classes.icon}
+        onClick={() => window.location.reload()}
+      >
         <RefreshIcon />
       </IconButton>
     ),
@@ -72,22 +85,26 @@ const Navbar = ({ children }) => {
   )
 
   return (
-    <main className={classes.root}>
-      <AppBar position='fixed' elevation={8} color='primary'>
+    <>
+      <AppBar
+        position='fixed'
+        color='primary'
+        elevation={8}
+        className={classes.appbar}
+      >
         <Toolbar>
           <Typography
             noWrap
             variant='h5'
             component='div'
-            color='secondary'
-            classes={{ root: classes.title }}
+            className={classes.title}
             onClick={() => navigate(routes.STORIES)}
           >
             hck.nws
           </Typography>
 
           {title && (
-            <Typography variant='h5' noWrap color='secondary'>
+            <Typography variant='h5' noWrap className={classes.path}>
               /{title}
             </Typography>
           )}
@@ -102,8 +119,8 @@ const Navbar = ({ children }) => {
 
           <IconButton
             edge='end'
-            color='inherit'
             onClick={() => navigate(routes.ABOUT)}
+            className={classes.icon}
           >
             <InfoIcon />
           </IconButton>
@@ -117,7 +134,7 @@ const Navbar = ({ children }) => {
 
       <BottomNavigation
         value={location.pathname}
-        onChange={(ev, section) => navigate(section)}
+        onChange={(_, section) => navigate(section)}
         className={classes.tabs}
       >
         <BottomNavigationAction
@@ -131,7 +148,7 @@ const Navbar = ({ children }) => {
           icon={<JobsIcon />}
         />
       </BottomNavigation>
-    </main>
+    </>
   )
 }
 

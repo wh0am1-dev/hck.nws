@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
-import { makeStyles, Button, Typography, Chip } from '@material-ui/core'
+import { makeStyles, Button, Typography, Chip, Link } from '@material-ui/core'
 import {
   Timeline,
   TimelineItem,
@@ -25,7 +25,8 @@ const useStyles = makeStyles(theme => ({
     overflowX: 'hidden'
   },
   author: {
-    marginBottom: theme.spacing(1)
+    marginBottom: theme.spacing(1),
+    color: theme.palette.primary.main
   },
   more: {
     textAlign: 'center'
@@ -61,11 +62,17 @@ const Comments = ({ list }) => {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent className={classes.content}>
-                  <Chip
-                    variant='outlined'
-                    label={comment.by}
-                    className={classes.author}
-                  />
+                  <Link
+                    href={`https://news.ycombinator.com/user?id=${comment.by}`}
+                    underline='none'
+                  >
+                    <Chip
+                      clickable
+                      variant='outlined'
+                      label={comment.by}
+                      className={classes.author}
+                    />
+                  </Link>
                   <Typography
                     variant='body1'
                     component='div'

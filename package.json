@@ -38,13 +38,13 @@
     "typeface-nunito": "^1.1.13"
   },
   "devDependencies": {
-    "@parcel/packager-raw-url": "2.6.2",
-    "@parcel/reporter-bundle-analyzer": "^2.6.2",
-    "@parcel/transformer-svg-react": "^2.6.2",
-    "@parcel/transformer-webmanifest": "2.6.2",
+    "@parcel/packager-raw-url": "2.8.3",
+    "@parcel/reporter-bundle-analyzer": "^2.8.3",
+    "@parcel/transformer-svg-react": "^2.8.3",
+    "@parcel/transformer-webmanifest": "2.8.3",
     "buffer": "^6.0.3",
-    "parcel": "^2.6.2",
-    "prettier": "^2.7.1",
+    "parcel": "^2.8.3",
+    "prettier": "^2.8.4",
     "process": "^0.11.10",
     "redux-logger": "^3.0.6"
   }
