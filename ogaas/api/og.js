@@ -12,11 +12,13 @@ const metascraper = require('metascraper')([
 ])
 
 const handler = async (req, res) => {
-  const target = req.body && req.body.url
-  if (!target) res.status(418).json({})
+  const target = req.query.url
+  if (!target) res.status(418).end()
 
   const { body: html, url } = await got(target)
   const metadata = await metascraper({ html, url })
+
+  res.setHeader('Cache-Control', 's-maxage=86400')
   res.status(200).json(metadata)
 }
 

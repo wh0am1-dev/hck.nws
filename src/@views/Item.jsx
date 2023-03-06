@@ -101,7 +101,7 @@ const Item = () => {
         </Grid>
 
         <Grid item xs={12}>
-          <Typography variant='subtitle2' align='center' noWrap>
+          <Typography variant='subtitle2' align='center'>
             {item.url ? (
               <Link href={item.url}>{item.url}</Link>
             ) : (

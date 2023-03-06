@@ -19,13 +19,12 @@ export const getStories = ({ max = 64, done, error }) =>
     .get(api.stories.top)
     .then(top =>
       axios
-        .all(top.data.map(id => axios.get(api.item(id))))
+        .all(top.data.slice(0, max).map(id => axios.get(api.item(id))))
         .then(stories =>
           done?.(
             stories
               .map(story => story.data)
               .filter(story => story.type === 'story')
-              .slice(0, max)
           )
         )
         .catch(e => error?.(e))
@@ -61,6 +60,6 @@ export const getItem = ({ id, done, error }) =>
 
 export const getOG = ({ url, done, error }) =>
   axios
-    .post(api.og, { url })
+    .get(`${api.og}?url=${encodeURIComponent(url)}`)
     .then(og => done?.(og.data))
     .catch(e => error?.(e))

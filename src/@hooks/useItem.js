@@ -21,11 +21,13 @@ export const useItem = id => {
         if (item?.url) {
           getOG({
             url: item.url,
-            done: og => setOG(og),
-            error: () => {
-              setOG({ url: item.url, title: item.title })
-              setLoading(false)
-            }
+            done: og =>
+              setOG({
+                ...og,
+                url: og.url || item.url,
+                title: og.title || item.title
+              }),
+            error: () => setOG({ url: item.url, title: item.title })
           })
         }
       },
