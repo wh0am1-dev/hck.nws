@@ -23,7 +23,7 @@ export const useItem = id => {
             url: item.url,
             done: og => setOG(og),
             error: () => {
-              setOG({ title: item.title })
+              setOG({ url: item.url, title: item.title })
               setLoading(false)
             }
           })
