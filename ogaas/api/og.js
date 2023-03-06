@@ -18,7 +18,7 @@ const handler = async (req, res) => {
   const { body: html, url } = await got(target)
   const metadata = await metascraper({ html, url })
 
-  res.setHeader('Cache-Control', 's-maxage=86400')
+  res.setHeader('Cache-Control', 's-maxage=604800')
   res.status(200).json(metadata)
 }
 
