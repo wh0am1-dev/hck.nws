@@ -14,48 +14,53 @@ const api = {
   og: 'https://ogaas.vercel.app/api/og'
 }
 
-export const getStories = ({ max, done, error }) =>
+export const getStories = ({ max = 64, done, error }) =>
   axios
     .get(api.stories.top)
-    .then(res =>
+    .then(top =>
       axios
-        .all(res.data.slice(0, max).map(id => axios.get(api.item(id))))
-        .then(res =>
-          done(res.map(r => r.data).filter(item => item.type === 'story'))
+        .all(top.data.map(id => axios.get(api.item(id))))
+        .then(stories =>
+          done?.(
+            stories
+              .map(story => story.data)
+              .filter(story => story.type === 'story')
+              .slice(0, max)
+          )
         )
-        .catch(err => error && error(err))
+        .catch(e => error?.(e))
     )
-    .catch(err => error && error(err))
+    .catch(e => error?.(e))
 
 export const getJobs = ({ done, error }) =>
   axios
     .get(api.jobs)
-    .then(res =>
+    .then(jobs =>
       axios
-        .all(res.data.map(id => axios.get(api.item(id))))
-        .then(res => done(res.map(r => r.data)))
-        .catch(err => error && error(err))
+        .all(jobs.data.map(id => axios.get(api.item(id))))
+        .then(jobs => done?.(jobs.map(job => job.data)))
+        .catch(e => error?.(e))
     )
-    .catch(err => error && error(err))
+    .catch(e => error?.(e))
 
 export const getItem = ({ id, done, error }) =>
   axios
     .get(api.item(id))
-    .then(res =>
+    .then(item =>
       axios
-        .all(res.data.kids?.map(comment => axios.get(api.item(comment))) || [])
+        .all(item.data.kids?.map(comment => axios.get(api.item(comment))) || [])
         .then(comments =>
-          done({
-            ...res.data,
-            kids: comments.map(c => c.data).filter(c => !c?.deleted)
+          done?.({
+            ...item.data,
+            kids: comments.map(c => c.data).filter(c => c && !c.deleted)
           })
         )
-        .catch(err => error && error(err))
+        .catch(e => error?.(e))
     )
-    .catch(err => error && error(err))
+    .catch(e => error?.(e))
 
 export const getOG = ({ url, done, error }) =>
   axios
     .post(api.og, { url })
-    .then(res => done(res.data))
-    .catch(err => error && error(err))
+    .then(og => done?.(og.data))
+    .catch(e => error?.(e))
