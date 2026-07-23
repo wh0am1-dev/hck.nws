@@ -28,7 +28,9 @@ const Stories = () => {
   const dispatch = useDispatch()
   const { fetching, items } = useSelector(selectStories)
 
-  useEffect(() => dispatch(fetchStories()), [dispatch])
+  useEffect(() => {
+    dispatch(fetchStories())
+  }, [dispatch])
 
   if (fetching === 'error') return <Error />
 
