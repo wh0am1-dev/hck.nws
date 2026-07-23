@@ -28,7 +28,9 @@ const Jobs = () => {
   const dispatch = useDispatch()
   const { fetching, items } = useSelector(selectJobs)
 
-  useEffect(() => dispatch(fetchJobs()), [dispatch])
+  useEffect(() => {
+    dispatch(fetchJobs())
+  }, [dispatch])
 
   if (fetching === 'error') return <Error />
 

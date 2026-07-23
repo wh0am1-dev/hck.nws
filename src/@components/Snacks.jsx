@@ -1,4 +1,4 @@
-import { createRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { SnackbarProvider, useSnackbar } from 'notistack'
 import { makeStyles, Button, useMediaQuery, useTheme } from '@material-ui/core'
@@ -40,7 +40,7 @@ const Snacks = () => {
   const theme = useTheme()
   const topRight = useMediaQuery(theme.breakpoints.up('sm'))
 
-  const snackRef = createRef()
+  const snackRef = useRef()
   const onDismiss = key => () => snackRef.current.closeSnackbar(key)
 
   return (
